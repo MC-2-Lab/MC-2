@@ -1,0 +1,5 @@
+.htaccess
+
+pdf/
+img/
+**/.DS_Store

@@ -1,0 +1,78 @@
+/*
+ * 初始化
+ */
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	width: 100%;
+	font-family: "Microsoft YaHei UI",sans-serif;
+	font-size: 16px;
+	color:#222;
+}
+a{
+	text-decoration: none;
+	color: #222;
+}
+ul,li{
+	list-style:none;
+}
+/*
+ * 公共样式*
+ */
+
+*{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.bg{
+	color:white;
+	width:100%;
+	height:500px;
+	text-align: center;
+	font-size: 45px;
+	font-weight: bold;
+	background:url("../img/bg.png");
+	background-size: cover;
+	background-clip: initial;
+	background-position: center center;
+}
+
+h1{
+	text-align: center;
+	margin: auto;
+	line-height: 100px;
+}
+
+.thisBrief{
+	width: 1200px;
+	margin: auto;
+	text-align: justify;
+	line-height: 35px;
+}
+
+.news{
+	border-top-color: #aaa;
+	border-top-width: thin;
+	border-top-style: solid;
+}
+.news li{
+	text-indent: -6.95em;
+	margin-left: 6.95em;
+	padding: 0.5em 0;
+	border-bottom-color: #aaa;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+}
+.news li:last-child{
+	border-bottom-style: none;
+	text-align: center;
+	font-size:22px;
+}
+.news li a{
+	text-decoration: none;
+	color: #0151B0;
+}
