@@ -44,5 +44,14 @@ def add_ini(path,data):
     c.writeConfig(ret)
     return "OK"
 
-
-
+# 打印一个
+def print_demo(path,ii=0):
+    c=config(path)
+    ret = c.readAll()
+    if len(ret.keys())>0:
+        demo = ret[list(ret.keys())[ii]]
+        print(demo)
+        return demo
+    else:
+        return None
+    

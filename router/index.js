@@ -21,6 +21,8 @@ router.get("/", (req, res, next) => {
 
     var c =new config("router/"+ini_name+".ini") //否则从ex1.js目录开始
     var ret_c = c.readAll()
+    //console.log(ret_c);
+    
     var keys_list = Object.keys(ret_c)
     var all_len = keys_list.length;
 
@@ -35,8 +37,12 @@ router.get("/", (req, res, next) => {
     start_ii = all_len - page*every_page_num
     if(start_ii<0){start_ii=0}
     for(var ii=start_ii+every_page_num-1;ii>start_ii-1;ii--){
+      if(ii>=all_len){
+          continue;
+      }
       ret['data'] += ret_c[ii.toString()];
     }
+    // console.log(ret);
     res.json(ret)
     return
   }

@@ -1,5 +1,5 @@
 from config import *
-name='publish'
+name='data_codes'
 # c=config('data.ini')
 # ret = c.readAll()
 # id = 0
