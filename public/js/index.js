@@ -1,7 +1,7 @@
 //轮播图
 var $li = $(".b_list ul li");
  var len = $li.length-1;
- var _index = 0;
+ var _index = 1;
  var $img = $(".b_main .b_m_pic li");
  var $btn = $(".b_btn div");
 
@@ -44,7 +44,7 @@ var $li = $(".b_list ul li");
              _index = 0;
          }
          play();
-     },4000);
+     },8000);
  }
  //上面是计时器，调轮播速度可以改上面的2000那个值，单位毫秒2000ms=2s
  auto();
