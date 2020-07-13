@@ -20,6 +20,18 @@ var $li = $(".b_list ul li");
  function play(){
      $li.eq(_index).addClass("l_click").siblings().removeClass("l_click");
      $img.eq(_index).fadeIn().siblings().fadeOut();
+     //修改字体颜色
+     if(_index==0){
+         document.getElementById("title1").style.color="red";
+         document.getElementById("title2").style.color="red";
+         document.getElementById("title3").style.color="red";
+     }
+     else{
+         document.getElementById("title1").style.color="white";
+         document.getElementById("title2").style.color="#ccc";
+         document.getElementById("title3").style.color="white";
+         
+     }
  }
      $btn.click(function(){
          var index = $(this).index();
