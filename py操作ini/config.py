@@ -44,6 +44,21 @@ def add_ini(path,data):
     c.writeConfig(ret)
     return "OK"
 
+def change_ini(path,data,ii):
+    c = config(path)
+    ret = c.readAll()
+    ret[list(ret.keys())[ii]] = data
+    c.writeConfig(ret)
+    return "OK"
+
+def del_ini(path,ii):
+    c = config(path)
+    ret = c.readAll()
+    ret.pop(list(ret.keys())[ii])
+    c.writeConfig(ret)
+    return "OK"
+
+
 # 打印一个
 def print_demo(path,ii=0):
     c=config(path)

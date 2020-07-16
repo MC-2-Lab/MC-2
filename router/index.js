@@ -35,11 +35,15 @@ router.get("/", (req, res, next) => {
     ret['data']=''
     //从后向前找
     start_ii = all_len - page*every_page_num
-    if(start_ii<0){start_ii=0}
+    // if(start_ii<0){start_ii=0}
     for(var ii=start_ii+every_page_num-1;ii>start_ii-1;ii--){
       if(ii>=all_len){
           continue;
       }
+      if(ii<0){
+          break;
+      }
+      // console.log(ret_c[ii.toString()]);
       ret['data'] += ret_c[ii.toString()];
     }
     // console.log(ret);
