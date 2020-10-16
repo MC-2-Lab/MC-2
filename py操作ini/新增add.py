@@ -4,17 +4,16 @@ from config import *
 file_name = 'publish.ini'
 
 #打印默认第一条内容，进行新增参考
-print_demo(file_name,-1)
+item_index = -8
+print_demo(file_name,item_index)
 
 def add():
     add_context=\
-        """<li class="content">
-    Jianyi Wang, Mai Xu, Xin Deng, Congyong Chen, Yuhang Song, Liquan Shen, "MW-GAN: Multi-level Wavelet-based Generative Adversarial Network for Perceptual Quality Enhancement of Compressed Video" in European Conference on Computer Vision (ECCV 2020).
-    <br/>|
-    <a href=''>Paper</a>
-    |
-    <a href="">Code</a>
-    |
+        """<li><strong>[2020-10-11]</strong>
+Xu, Mai, Lai Jiang, Chen Li, Zulin Wang, and Xiaoming Tao. "Viewport-based CNN: A Multi-task Approach for Assessing 360° Video Quality." IEEE transactions on pattern analysis and machine intelligence, 2020.
+<br/>|
+<a href='../pdf/xxxx.pdf'>Download PDF</a>
+|
 </li>"""
     add_ini(file_name,add_context)
     print("ok")
@@ -25,16 +24,23 @@ def add():
 #修改
 def change():
     add_context=\
-        """<li><strong>[2020-07-02]</strong>
-Our paper entitled "DeepGF: Glaucoma Forecast Using the Sequential Fundus Images"  has been accepted by Medical Image Computing and Computer Assisted Intervention Society (MICCAI'20). Congratulation, Liu Li and Xiaofei. 
+        """<li class="content">
+Zhenyu Guan*, Qunliang Xing, Mai Xu, Ren Yang, Tie Liu and Zulin Wang, "MFQE 2.0: A New Approach for Multi-frame Quality Enhancement on Compressed Video" in IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI 2019), DOI: 10.1109/TPAMI.2019.2944806.
+<br/>|
+<a href='http://arxiv.org/abs/1902.09707'>Paper (latest on arXiv)</a>
+|
+<a href="https://github.com/RyanXingQL/MFQEv2.0">Code</a>
+|
+<a href="../pdf/TPAMI2019MFQE2.pdf">PDF (archived)</a>
+|
 </li>"""
-    change_ini(file_name,add_context,-2)
+    change_ini(file_name,add_context,item_index)
     print("ok")
-
+    print_demo(file_name, item_index)
 # change()
 
 #删除
 def delete():
-    del_ini(file_name,-1)
+    del_ini(file_name,item_index)
     print("ok")
 # delete()
