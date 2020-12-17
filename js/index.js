@@ -1,7 +1,7 @@
 //轮播图
 var $li = $(".b_list ul li");
  var len = $li.length-1;
- var _index = 0;
+ var _index = 1;
  var $img = $(".b_main .b_m_pic li");
  var $btn = $(".b_btn div");
 
@@ -20,6 +20,18 @@ var $li = $(".b_list ul li");
  function play(){
      $li.eq(_index).addClass("l_click").siblings().removeClass("l_click");
      $img.eq(_index).fadeIn().siblings().fadeOut();
+     //修改字体颜色
+     if(_index==0){
+         document.getElementById("title1").style.color="red";
+         document.getElementById("title2").style.color="red";
+         document.getElementById("title3").style.color="red";
+     }
+     else{
+         document.getElementById("title1").style.color="white";
+         document.getElementById("title2").style.color="#ccc";
+         document.getElementById("title3").style.color="white";
+         
+     }
  }
      $btn.click(function(){
          var index = $(this).index();
@@ -44,7 +56,7 @@ var $li = $(".b_list ul li");
              _index = 0;
          }
          play();
-     },4000);
+     },8000);
  }
  //上面是计时器，调轮播速度可以改上面的2000那个值，单位毫秒2000ms=2s
  auto();
@@ -119,7 +131,7 @@ function click4(){
 function get_page(){
     //使用全局变量 temp_page
     var params = {"mode":"0","page":temp_page,"ini_name":"index"};
-    $.get('http://127.0.0.1:8000/api/', params, function(data){
+    $.get('/api/', params, function(data){
         console.log(data);
         $('#show_news').empty();
         $('#show_news').append(data['data']);
@@ -152,7 +164,7 @@ function get_page(){
 function get_search(){
     //使用全局变量 temp_page
     var params = {"mode":"1","context":document.getElementById('input1').value,"ini_name":"index"};
-    $.get('http://127.0.0.1:8000/api/', params, function(data){
+    $.get('/api/', params, function(data){
         console.log(data);
         $('#show_news').empty();
         $('#show_news').append(data['data']);

@@ -57,7 +57,7 @@ function click4(){
 function get_page(){
     //使用全局变量 temp_page
     var params = {"mode":"0","page":temp_page,"ini_name":"publish"};
-    $.get('http://127.0.0.1:8000/api/', params, function(data){
+    $.get('/api/', params, function(data){
         console.log(data);
         $('#show_news').empty();
         $('#show_news').append(data['data']);
@@ -90,7 +90,7 @@ function get_page(){
 function get_search(){
     //使用全局变量 temp_page
     var params = {"mode":"1","context":document.getElementById('input1').value,"ini_name":"publish"};
-    $.get('http://127.0.0.1:8000/api/', params, function(data){
+    $.get('/api/', params, function(data){
         console.log(data);
         $('#show_news').empty();
         $('#show_news').append(data['data']);

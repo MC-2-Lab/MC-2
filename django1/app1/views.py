@@ -29,10 +29,19 @@ def api(request):
         ret['data'] = ''
         #从后向前找
         start_ii = length-page*every_page_num
-        if start_ii<0:
-            start_ii=0
-        for ii in range(start_ii+every_page_num-1,start_ii-1,-1): #反向
+        # if start_ii<0:
+        #     start_ii=0
+        #反向
+        ii = start_ii+every_page_num-1
+        while ii > start_ii-1:
+            if ii >= length:
+                pass
+            if ii <0:
+                break
             ret['data'] += ret_c[str(ii)]
+
+            ii -= 1
+
         return  JsonResponse(ret)
 
     #搜索

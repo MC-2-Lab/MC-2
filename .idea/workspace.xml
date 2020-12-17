@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa81a41c-1a5a-4ee2-bec3-1a3338793023" name="Default Changelist" comment="" />
+    <list default="true" id="aa81a41c-1a5a-4ee2-bec3-1a3338793023" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/normal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django1/app1/index.ini" beforeDir="false" afterPath="$PROJECT_DIR$/django1/app1/index.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django1/app1/publish.ini" beforeDir="false" afterPath="$PROJECT_DIR$/django1/app1/publish.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django1/app1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django1/app1/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django1/django1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django1/django1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Communication.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Communication.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Compression.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Compression.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Databases_Codes.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Databases_Codes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/jianyiwang.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/jianyiwang.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/liuli.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/liuli.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/minglangqiao.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/minglangqiao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/qunliangxing.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/qunliangxing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/tianyili.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/tianyili.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/xiaofeiwang.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/xiaofeiwang.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Members/yufanliu.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Members/yufanliu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Perception.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Perception.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/VAR.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/VAR.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/head.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/head2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/head2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/head3.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/head3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/publish.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/publish.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf/DCC2019ADenseNet.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/pdf/DCC2019ADenseNet.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf/ICCV2015faceimage.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/pdf/ICCV2015faceimage.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update_news.sh" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bQ8tBorF5ElgKjf9gr3IJnQxZh" />
   <component name="ProjectViewState">
@@ -15,6 +50,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -26,7 +66,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588553171937</updated>
+      <workItem from="1608220384698" duration="2085000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>
