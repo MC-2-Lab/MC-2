@@ -44,6 +44,17 @@ def add_ini(path,data):
     c.writeConfig(ret)
     return "OK"
 
+def insert_ini(path,data,ii):
+    c=config(path)
+    ret = c.readAll()
+    all_ii = len(ret.keys())
+    for temp_ii in range(all_ii,ii,-1):
+        ret[(str)(temp_ii)] = ret[(str)(temp_ii-1)]
+    ret[(str)(ii)] = data
+    c.writeConfig(ret)
+    return "OK"
+
+
 def change_ini(path,data,ii):
     c = config(path)
     ret = c.readAll()
