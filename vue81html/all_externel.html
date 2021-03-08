@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>服务器状态</title>
+
+
+<style type="text/css">
+  textarea{
+    	border:0;
+  	background-color:transparent;
+  	/*scrollbar-arrow-color:yellow;
+  	scrollbar-base-color:lightsalmon;
+  	overflow: hidden;*/
+  	color: #666464;
+  	height: auto;
+  }
+</style>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script> 
+<script>
+$(function(){
+setInterval(function() {
+$("#content1").load('http://509_http.sharklet.buaamc2.net/status.txt');
+$("#content2").load('http://2080_http.sharklet.buaamc2.net/status.txt');
+$("#content3").load('http://401_http.sharklet.buaamc2.net/status.txt');
+$("#content4").load('http://207_http.sharklet.buaamc2.net/status.txt');
+$("#content5").load('http://402_http.sharklet.buaamc2.net/status.txt');
+
+},1000);
+
+
+
+});
+</script>
+</head>
+<body>
+<textarea  id="content1"  cols="35" rows="40" readonly>
+</textarea >
+&nbsp;&nbsp;
+<textarea  id="content2"  cols="35" rows="40" readonly>
+</textarea >&nbsp;&nbsp;
+<textarea  id="content3"  cols="35" rows="40" readonly>
+</textarea >&nbsp;&nbsp;
+<textarea  id="content4"  cols="35" rows="40" readonly>
+</textarea >&nbsp;&nbsp;
+<textarea  id="content5"  cols="35" rows="40" readonly>
+</textarea >
+<!-- <input type="text"  id="textbox" /> -->
+
+
+<br><br>
+
+<a href="http://buaamc2.net:81">返回IRC后台页面</a>
+
+</body>
+</html>

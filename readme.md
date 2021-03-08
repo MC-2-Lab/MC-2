@@ -18,7 +18,27 @@
 
 3. 安装supervisor，按照nginx文件夹里备份进行配置，目的是自动运行django脚本
 
+4. 配置81后台网站需要的认证模块
 
+   sudo apt search htpasswd
+
+   sudo apt install apache2-utils
+
+   mkdir /usr/local/nginx
+
+   touch /usr/local/nginx/passwd.db
+
+   htpasswd -c /usr/local/nginx/passwd.db admin
+
+   #输入密码-----
+
+   chmod 400 /usr/local/nginx/passwd.db
+
+   chown nginx  /usr/local/nginx/passwd.db
+
+   cat /usr/local/nginx/passwd.db
+
+   
 
 ## 更新修改数据
 
