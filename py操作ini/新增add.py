@@ -1,7 +1,7 @@
 from config import *
 
-#新增对应的网页数据文本，如index、publish、research:包括communication、compression、VAR、perception，以及data_codes(add_data函数) 几个ini文件
-file_name = 'perception.ini'
+#新增对应的网页数据文本，如 index、publish、research:包括communication、compression、VAR、perception，以及data_codes(add_data函数) 几个ini文件
+file_name = 'VAR.ini'
 
 #打印默认第一条内容，进行新增参考
 item_index = -1
@@ -10,9 +10,9 @@ print_demo(file_name,item_index)
 def add():
     add_context=\
         """<li class="content">
-Lai Jiang, Xiaofei Wang, Mai Xu, Leonid Sigal. "Saliency-Guided Image Translation."  Conference on Computer Vision and Pattern Recognition (CVPR2021).
+Li Yang, Mai Xu, Xin Deng, Bo Feng. "Spatial Attention-based Non-reference Perceptual Quality Prediction Network for Omnidirectional Images." IEEE International Conference on Multimedia and Expo (ICME'2021).
 <br/>|
-<a href='../pdf/CVPR2021_SGIT1.pdf'>Download PDF</a> <a href='../pdf/CVPR2021_SGIT2.pdf'>Download Supply</a>
+<a href='../pdf/imce21yl.pdf'>Download PDF</a> <a href='xxx'>Download Code</a> <a href='xxx'>Download Database</a>
 |
 </li>"""
     add_ini(file_name,add_context)
