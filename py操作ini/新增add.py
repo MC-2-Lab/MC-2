@@ -1,7 +1,7 @@
 from config import *
 
 #新增对应的网页数据文本，如 index、publish、research:包括communication、compression、VAR、perception，以及data_codes(add_data函数) 几个ini文件
-file_name = 'VAR.ini'
+file_name = 'compression.ini'
 
 #打印默认第一条内容，进行新增参考
 item_index = -1
@@ -25,8 +25,11 @@ Li Yang, Mai Xu, Xin Deng, Bo Feng. "Spatial Attention-based Non-reference Perce
 #修改
 def change():
     add_context=\
-        """<li><strong>[2020-12-28]</strong>
-Our paper entitled "A Viewport-adaptive Rate Control Approach for Omnidirectional Video Coding" has been accepted by Data Compression Conference (DCC)'2021. Well done, Yichen.
+        """<li class="content">
+Xin Deng, Wenzhe Yang, Ren Yang, Mai Xu, Enpeng Liu, Qianhan Feng, Radu Timofte. "Deep Homography for Efficient Stereo Image Compression."  Conference on Computer Vision and Pattern Recognition (CVPR2021).
+<br/>|
+<a href='../pdf/cvpr21hesic.pdf'>Download PDF</a>
+|
 </li>"""
     change_ini(file_name,add_context,item_index)
     print("ok")
