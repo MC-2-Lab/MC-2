@@ -1,4 +1,4 @@
-git pull origin master
-git add -A
-git commit -m "update"
-git push origin master
+git pull origin django
+git add -A 
+git commit -m "up"
+git push origin django
