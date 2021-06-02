@@ -1,6 +1,6 @@
 from config import *
 
-#新增对应的网页数据文本，如 index、publish、research:包括communication、compression、VAR、perception，以及data_codes(add_data函数) 几个ini文件
+#新增对应的网页数据文本，如 1)index、2)publish、3)research:包括 communication、compression、VAR、perception，以及data_codes(add_data函数) 几个ini文件
 file_name = 'compression.ini'
 
 #打印默认第一条内容，进行新增参考
@@ -10,9 +10,9 @@ print_demo(file_name,item_index)
 def add():
     add_context=\
         """<li class="content">
-Li Yang, Mai Xu, Xin Deng, Bo Feng. "Spatial Attention-based Non-reference Perceptual Quality Prediction Network for Omnidirectional Images." IEEE International Conference on Multimedia and Expo (ICME'2021).
+Tianyi Li, Mai Xu*, Runzhi Tang, Ying Chen, Qunliang Xing. "DeepQTMT: A Deep Learning Approach for Fast QTMT-based CU Partition of Intra-mode VVC." IEEE Transactions on Image Processing (TIP'2021).
 <br/>|
-<a href='../pdf/imce21yl.pdf'>Download PDF</a> <a href='xxx'>Download Code</a> <a href='xxx'>Download Database</a>
+<a href='../pdf/TIP2021DeepQTMT.pdf'>Download PDF</a>
 |
 </li>"""
     add_ini(file_name,add_context)
@@ -28,7 +28,7 @@ def change():
         """<li class="content">
 Xin Deng, Wenzhe Yang, Ren Yang, Mai Xu, Enpeng Liu, Qianhan Feng, Radu Timofte. "Deep Homography for Efficient Stereo Image Compression."  Conference on Computer Vision and Pattern Recognition (CVPR2021).
 <br/>|
-<a href='../pdf/cvpr21hesic.pdf'>Download PDF</a>
+<a href='../pdf/TIP2021DeepQTMT.pdf'>Download PDF</a>
 |
 </li>"""
     change_ini(file_name,add_context,item_index)
