@@ -294,14 +294,15 @@
 - WSL：port:6007 <br>
 - Jianyi: port:6008 <br>
 -->
-                            <br><br><br> 花生壳内网穿透
+                            <br>
+                            <h2 style="color: blue;">花生壳内网穿透</h2>
                             <br> 传大文件请用北航云盘或腾讯COS盘等直链静态文件服务器或校内互传
-                            <br> 509：[370581k45d.wicp.vip:57526]
-                            <br> 其他服务器可以登陆后再进行ssh跳转
+                            <br> 509：[370581k45d.wicp.vip:57526] (见下图 跳板机账号ywz 密码ywzbuaamc2)
+                            <br> 其他服务器可以登陆后再进行ssh跳转 推荐使用mobaxterm软件自带转发工具搭配使用：
+                            <img src="img/chuantou.png" /><br>
                             <br><br><br>
                             <h2 style="color: blue;">非22端口穿透查看/TensorboardX面板远程查看</h2>
-
-                            eg: 本机输入类似ssh -L 127.0.0.1:8008:127.0.0.1:6006 user@frp0.buaamc2.net -p 3000
+                            或eg: 本机输入类似ssh -L 127.0.0.1:8008:127.0.0.1:6006 user@frp0.buaamc2.net -p 3000
                             <br> 其中127.0.0.1:8008是本机B对应的ip端口，127.0.0.1:6006是远端要转发的C机对自己的ip+端口
                             <br> user是用户名，frp0.buaamc2.net和-p 3000可以换成对应B--(ssh)->C机远程对应的ip/域名和端口(默认22)
                             <br>
