@@ -1,4 +1,4 @@
-# IRC-Website  django版
+# IRC-Website3.0 : django版
 
 不同于纯静态版（1.0）和express-nodejs版（2.0），django版搭配nginx更加灵活、便于部署和迁移
 
