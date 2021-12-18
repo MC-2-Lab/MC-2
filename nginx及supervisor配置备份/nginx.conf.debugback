@@ -1,0 +1,77 @@
+
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+        # server_name  localhost;
+        server_name  *.buaamc2.net;
+        
+        set $domain 0; 
+        if ($http_host ~* "^(.*?)\.buaamc2\.net$") {    #正则表达式
+                set $domain $1;                     #设置变量
+        }
+
+
+        location / {
+            # 无else 只有if
+            if ($domain ~* "cunet") {
+            #    proxy_pass http://abc.com:3001;      #域名中有shop，转发到3001端口
+            #    proxy_set_header Host $host;
+            #     proxy_set_header X-Real-IP $remote_addr;
+            #     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            root   D:\Desktop\folder\IRC_Lab\website_contribution; 
+            index  index.html index.htm;
+            autoindex on;
+            }
+
+            if ($domain == 0){
+            root   D:\Desktop\folder\IRC_Lab\website_contribution\latest\django; #D:\Desktop;
+            #index  index.html index.htm;
+            autoindex on;
+            }
+
+        }
+
+        location  /api/ { #/api/
+        proxy_pass http://localhost:8000/;
+        proxy_redirect  off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        }
+
+    }
+
+
+   
+
+}
