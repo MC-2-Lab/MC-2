@@ -1,0 +1,23 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx01
+    ports:
+      - "80:80"
+    volumes:
+      - ..:/src
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+  web:
+    build: .
+    container_name: djangoIRC
+    command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
+    volumes:
+      - ..:/src
+    expose:
+      - "8000"
+    restart: always
+    # links:
+    #   - nginx

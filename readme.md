@@ -1,14 +1,29 @@
-# IRC-Website3.0 : django版
+# IRC-Website4.0 : django版&docker部署
 
-不同于纯静态版（1.0）和express-nodejs版（2.0），django版搭配nginx更加灵活、便于部署和迁移
+## version
+1.0 纯静态文件
+2.0 express-nodejs版
+3.0 django+nginx+sqlite3
+4.0 git+docker+nginx+django+sqlite3
+
+## 使用git+docker配置部署:
+首先安装docker和docker-compose 可直接apt安装
+项目部署
+```
+git pull origin master
+cd docker
+. env.sh
+start
+```
+日志文件位于/docker/log/django.log中  
+后续更新时,直接git pull更新即可，不需要手动传新文件
 
 
+## 不使用docker配置部署:
 
 例：将此django文件夹放于/var/www/django处：
 
 文件结构：/var/www/django/ ...  [readme.md,(django1),(html),*.html,...]
-
-
 
 1. 部署django环境，测试运行
 
@@ -18,7 +33,7 @@
 
 3. 安装supervisor，按照nginx文件夹里备份进行配置，目的是自动运行django脚本
 
-4. 配置81后台网站需要的认证模块
+(4. 配置81后台网站需要的认证模块
 
    sudo apt search htpasswd
 
@@ -37,10 +52,10 @@
    chown nginx  /usr/local/nginx/passwd.db
 
    cat /usr/local/nginx/passwd.db
-
+)
    
 
-## 更新修改数据
+# 更新修改数据
 
 1. members相关为纯静态页面，对应改html文件代码即可，包括修改照片等信息
 
