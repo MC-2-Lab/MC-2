@@ -1,10 +1,10 @@
-# IRC-Website4.0 : django版&docker部署
+# IRC-Website4.0 : django版&git+docker部署
 
 ## version
-1.0 纯静态文件
-2.0 express-nodejs版
-3.0 django+nginx+sqlite3
-4.0 git+docker+nginx+django+sqlite3
+1.0 纯静态文件  
+2.0 express-nodejs版  
+3.0 django+nginx+sqlite3  
+4.0 git+docker+nginx+django+sqlite3  
 
 ## 使用git+docker配置部署:
 首先安装docker和docker-compose 可直接apt安装
@@ -22,7 +22,7 @@ build
 
 start
 ```
-日志文件位于/docker/log/django.log中  
+日志文件位于docker/log/django.log中  
 后续更新时,直接git pull更新即可，不需要手动传新文件
 
 
