@@ -19,6 +19,7 @@ git pull origin master
 cd docker
 . env.sh
 build
+
 start
 ```
 日志文件位于/docker/log/django.log中  
