@@ -8,6 +8,11 @@
 
 ## 使用git+docker配置部署:
 首先安装docker和docker-compose 可直接apt安装
+```
+apt install docker
+apt install docker.io
+apt install docker-compose
+```
 项目部署
 ```
 git pull origin master
