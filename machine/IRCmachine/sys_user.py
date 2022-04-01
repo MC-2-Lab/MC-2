@@ -2,9 +2,7 @@ import os
 import time
 import psutil
 
-machine_name = "xxx"
 # file_name = '/var/www/html/status.txt'
-file_name = '/src/status.txt'
 
 def task1():
     out_cpu = psutil.cpu_percent(1)
@@ -54,10 +52,10 @@ def task1():
     # print(gpu_data)
     write_out = ""
     #write
-    f= open(file_name,'w')
+    # f= open(file_name,'w')
     write_out += (str(time.asctime( time.localtime(time.time()) ))+"\n")
-    write_out += ("============================\n")
-    write_out += ("Server Name:\t{}\n".format(machine_name))
+    # write_out += ("============================\n")
+    # write_out += ("Server Name:\t509\n")
     write_out += ("============================\n")
     write_out += ("CPU:"+str(out_cpu)+"%\tMEM:"+str(out_mem)+"%\n")
     write_out += ("============================\n")
@@ -76,11 +74,10 @@ def task1():
         for jj in range(len(keys2)):
             write_out += ('\t'+keys2[jj]+"--"+str(all_data[keys1[ii]][keys2[jj]])+"MiB\n")
         write_out += ("----------------------------\n")
-    f.write(write_out)
-    f.close()
-    # print(write_out)
+    # f.write_out(write_out)
+    # f.close()
+    print(write_out)
 
 ############
-while 1:
+if __name__ == "__main__":
     task1()
-    time.sleep(10)

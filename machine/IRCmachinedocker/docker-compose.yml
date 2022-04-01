@@ -1,0 +1,13 @@
+version: '3'
+services:
+  machinenginx:
+    build: .
+    environment:
+      - user=${user}
+      - passwd=${passwd}
+    command: bash -c "service nginx start && python3 code/get_user_remote.py"
+    ports:
+      - "82:82"
+    volumes:
+      - .:/src
+      - ./nginx:/etc/nginx/conf.d

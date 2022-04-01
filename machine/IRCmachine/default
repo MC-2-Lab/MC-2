@@ -19,8 +19,8 @@
 # Default server configuration
 #
 server {
-	listen 81 default_server;
-	listen [::]:81 default_server;
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
 	# SSL configuration
 	#
@@ -39,29 +39,25 @@ server {
 	# include snippets/snakeoil.conf;
 
 	root /var/www/html;
-    
-    charset utf-8;
-    
+
 	# Add index.php to the list if you are using PHP
-	index index.html index.htm index.nginx-debian.html;
+#	index index.html index.htm index.nginx-debian.html;
 
 	server_name _;
 
+
+     
+
 	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-
-##passwd
-#auth_basic "admin";  //虚拟主机认证命名 
-#auth_basic_user_file /usr/local/nginx/passwd.db; #虚拟主机用户名密码认证数据库 
-#
-
-		root /var/www/html;
+                root /var/www/html;
         autoindex_localtime on; # 列表目录显示本地时间     
         autoindex on;
-        
-auth_basic "secret";
-auth_basic_user_file /usr/local/nginx/passwd.db;
+
+add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Credentials true;
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+#		try_files $uri $uri/ =404;
 	}
 
 	# pass PHP scripts to FastCGI server
@@ -89,36 +85,16 @@ auth_basic_user_file /usr/local/nginx/passwd.db;
 # You can move that to a different file under sites-available/ and symlink that
 # to sites-enabled/ to enable it.
 #
-server {
-	listen 80;
-	listen [::]:80;
-
-
-	root /var/www/django/;
-	#index index.html;
-    
-    
-	location /CUNet {
-        alias /var/www/CUNet;
-        autoindex_localtime on; # 列表目录显示本地时间     
-        autoindex on;
-	}
-    
-    location / {
-    		root /var/www/django;
-        autoindex_localtime on; # 列表目录显示本地时间     
-        autoindex on;
-	}
-    
-    
-    #/api/这种转了相当于没了
-    location  /api/ {
-        proxy_pass http://localhost:8050/;
-        proxy_redirect  off;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-    }
-    
-}
+#server {
+#	listen 80;
+#	listen [::]:80;
+#
+#	server_name example.com;
+#
+#	root /var/www/example.com;
+#	index index.html;
+#
+#	location / {
+#		try_files $uri $uri/ =404;
+#	}
+#}
