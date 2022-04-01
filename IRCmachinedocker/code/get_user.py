@@ -2,6 +2,7 @@ import os
 import time
 import psutil
 
+machine_name = "xxx"
 # file_name = '/var/www/html/status.txt'
 file_name = '/src/status.txt'
 
@@ -56,7 +57,7 @@ def task1():
     f= open(file_name,'w')
     write_out += (str(time.asctime( time.localtime(time.time()) ))+"\n")
     write_out += ("============================\n")
-    write_out += ("Server Name:\t509\n")
+    write_out += ("Server Name:\t{}\n".format(machine_name))
     write_out += ("============================\n")
     write_out += ("CPU:"+str(out_cpu)+"%\tMEM:"+str(out_mem)+"%\n")
     write_out += ("============================\n")
