@@ -11,6 +11,8 @@ def task1(ip,user,passwd,machine_name):
     p = os.popen('sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
 
     out = p.read()
+    print(out)
+    # raise ValueError("stop")
     all_lines = out.split('\n')
     all_data = {}
     gpu_data = []
@@ -94,6 +96,7 @@ if __name__ == "__main__":
 
     #gen-key
     for server in config:
+        print(server)
         os.popen('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{}'.format(passwd,user,config[server]))
 
     while 1:
