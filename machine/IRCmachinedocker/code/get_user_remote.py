@@ -97,12 +97,15 @@ if __name__ == "__main__":
     #gen-key
     for server in config:
         print(server)
-        os.popen('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{}'.format(passwd,user,config[server]))
+        try:
+            os.popen('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{}'.format(passwd,user,config[server]))
+        except:
+            print("ssh ken gen error for {}".format(server))
 
     while 1:
         for server in config:
-            # try:
-            task1(config[server], user, passwd, server)
-            # except:
-            #     print(server + " can not connect.")
+            try:
+                task1(config[server], user, passwd, server)
+            except:
+                print(server + " can not connect.")
         time.sleep(10)
