@@ -7,7 +7,7 @@ def task1(ip,user,passwd,machine_name):
 
     out_cpu = psutil.cpu_percent(1)
     out_mem = psutil.virtual_memory().percent
-
+    nvidia_version = ""
     p = os.popen('sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
 
     out = p.read()
@@ -19,6 +19,11 @@ def task1(ip,user,passwd,machine_name):
 
     flag1 = False
     for ii in range(len(all_lines)):
+        if 'NVIDIA-SMI' in all_lines[ii]:
+            nvidia_version = all_lines[ii].strip().strip("|").replace("NVIDIA-SMI","ns:").replace("Driver Version:", "dv:").replace("CUDA Version:","cv:").strip()
+            nvidia_version = ' '.join(nvidia_version.split())
+            continue
+
         if 'Default' in all_lines[ii]:
             gpu_data.append([all_lines[ii-1].split('|')[1].strip().split(' ')[0],all_lines[ii].split('|')[2].strip()])
 
@@ -68,6 +73,7 @@ def task1(ip,user,passwd,machine_name):
             write_out += (gpu_data[ii][jj])
         write_out += ('\n')
     write_out += ("============================\n")
+    write_out += "{}\n".format(nvidia_version)
     write_out += ("============================\n")
     keys1 = list(all_data.keys())
     for ii in range(len(keys1)):
@@ -108,4 +114,6 @@ if __name__ == "__main__":
                 task1(config[server], user, passwd, server)
             except:
                 print(server + " can not connect.")
+                time.sleep(1)
+                continue
         time.sleep(10)
