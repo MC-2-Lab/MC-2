@@ -20,7 +20,7 @@ def task1(ip,user,passwd,machine_name):
     flag1 = False
     for ii in range(len(all_lines)):
         if 'NVIDIA-SMI' in all_lines[ii]:
-            nvidia_version = all_lines[ii].strip().strip("|").replace("NVIDIA-SMI","ns:").replace("Driver Version:", "dv:").replace("CUDA Version:","cv:").strip()
+            nvidia_version = all_lines[ii].strip().strip("|").split("Driver Version:")[1:].replace("CUDA Version:"," | ").strip()
             nvidia_version = ' '.join(nvidia_version.split())
             continue
 
