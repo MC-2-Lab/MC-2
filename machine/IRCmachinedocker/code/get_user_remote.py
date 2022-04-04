@@ -1,17 +1,33 @@
 import os
 import time
-import psutil
+# import psutil
 
 def task1(ip,user,passwd,machine_name):
     file_name = '/src/{}.txt'.format(machine_name)
+    out_cpu = ""
+    out_mem = ""
 
-    out_cpu = psutil.cpu_percent(1)
-    out_mem = psutil.virtual_memory().percent
+    # #本机占用
+    # out_cpu = psutil.cpu_percent(1)
+    # out_mem = psutil.virtual_memory().percent
+    #ssh测量
+    # cpu> top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}'
+    p = os.popen('sshpass -p \"{}\" ssh {}@{} "top -bn1 | grep load"'.format(passwd,user,ip))
+    out = p.read()
+    # TODO
+    out_cpu = out.strip()
+
+    # mem> free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+    p = os.popen('sshpass -p \"{}\" ssh {}@{} "free -m "'.format(passwd,user,ip))
+    out = p.read()
+    # TODO
+    out_mem = out.strip()
+
     nvidia_version = ""
     p = os.popen('sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
 
     out = p.read()
-    print(out)
+    # print(out)
     # raise ValueError("stop")
     all_lines = out.split('\n')
     all_data = {}
@@ -86,25 +102,25 @@ def task1(ip,user,passwd,machine_name):
     f.close()
     # print(write_out)
 ############
+config = {
+    "509": "10.135.206.119",
+    "401":"10.134.162.193",
+    "2080":"10.134.162.90",
+    "207":"10.134.162.162",
+    "30901":"10.130.156.192",
+    "30902":"10.130.158.90",
+    "930": "10.134.126.158",
+}
+user = os.environ["user"]
+passwd = os.environ["passwd"]
 
 if __name__ == "__main__":
-    config = {
-        "509": "10.135.206.119",
-        "401":"10.134.162.193",
-        "2080":"10.134.162.90",
-        "207":"10.134.162.162",
-        "30901":"10.130.156.192",
-        "30902":"10.130.158.90",
-        "930": "10.134.126.158",
-    }
-    user = os.environ["user"]
-    passwd = os.environ["passwd"]
-
     #gen-key
     for server in config:
         print(server)
         try:
-            os.popen('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{}'.format(passwd,user,config[server]))
+            os.system('ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(config[server]))
+            os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,user,config[server]))
         except:
             print("ssh ken gen error for {}".format(server))
 
@@ -112,8 +128,12 @@ if __name__ == "__main__":
         for server in config:
             try:
                 task1(config[server], user, passwd, server)
+                print("server {} task1 done".format(server))
             except:
                 print(server + " can not connect.")
-                time.sleep(1)
-                continue
-        time.sleep(10)
+            time.sleep(1)
+        time.sleep(5)
+
+
+def debug(server="509"):
+    task1(config[server], user, passwd, server)
