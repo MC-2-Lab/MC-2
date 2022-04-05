@@ -80,7 +80,7 @@ def task1(ip,user,passwd,machine_name):
     write_out += ("============================\n")
     write_out += ("Server Name:\t{}\n".format(machine_name))
     write_out += ("============================\n")
-    write_out += ("CPU Load:"+str(out_cpu)+" \tMEM:"+str(out_mem)+"%\n")
+    write_out += ("CPU:"+str(out_cpu)+"%\tMEM:"+str(out_mem)+"%\n")
     write_out += ("============================\n")
     for ii in range(len(gpu_data)):
         for jj in range(len(gpu_data[ii])):
