@@ -14,14 +14,14 @@ def task1(ip,user,passwd,machine_name):
     # cpu> top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}'
     p = os.popen('sshpass -p \"{}\" ssh {}@{} "top -bn1 | grep load"'.format(passwd,user,ip))
     out = p.read()
-    # TODO
-    out_cpu = out.strip()
+    out_cpu = out.split()[-3].strip(",")
 
     # mem> free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
     p = os.popen('sshpass -p \"{}\" ssh {}@{} "free -m "'.format(passwd,user,ip))
     out = p.read()
-    # TODO
-    out_mem = out.strip()
+    used_mem = float(out.split("\n")[1].split()[2])
+    all_mem = float(out.split("\n")[1].split()[1])
+    out_mem = "{:.2f}".format(used_mem/all_mem)
 
     nvidia_version = ""
     p = os.popen('sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
@@ -80,7 +80,7 @@ def task1(ip,user,passwd,machine_name):
     write_out += ("============================\n")
     write_out += ("Server Name:\t{}\n".format(machine_name))
     write_out += ("============================\n")
-    write_out += ("CPU:"+str(out_cpu)+"%\tMEM:"+str(out_mem)+"%\n")
+    write_out += ("CPU Load:"+str(out_cpu)+" \tMEM:"+str(out_mem)+"%\n")
     write_out += ("============================\n")
     for ii in range(len(gpu_data)):
         for jj in range(len(gpu_data[ii])):
