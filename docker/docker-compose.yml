@@ -6,8 +6,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /var/www/upload:/src/
       - ..:/src
+      - /var/www/upload:/src/upload
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - web
