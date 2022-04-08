@@ -13,6 +13,10 @@
 apt install docker
 apt install docker.io
 apt install docker-compose
+
+mkdir /var/www/upload
+chmod -R 777 /var/www/upload #用来接收校内的看板信息
+
 ```
 项目部署
 ```
