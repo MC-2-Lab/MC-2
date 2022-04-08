@@ -122,15 +122,23 @@ if __name__ == "__main__":
     for server in config:
         print(server)
         try:
+            if server=="220":
+                temp_user = "yangwenzhe"
+            else:
+                temp_user = user
             os.system('ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(config[server]))
-            os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,user,config[server]))
+            os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,config[server]))
         except:
             print("ssh ken gen error for {}".format(server))
 
     while 1:
         for server in config:
             try:
-                task1(config[server], user, passwd, server)
+                if server=="220":
+                    temp_user = "yangwenzhe"
+                else:
+                    temp_user = user
+                task1(config[server], temp_user, passwd, server)
                 print("server {} task1 done".format(server))
             except:
                 print(server + " can not connect.")
@@ -139,4 +147,8 @@ if __name__ == "__main__":
 
 
 def debug(server="509"):
-    task1(config[server], user, passwd, server)
+    if server=="220":
+        temp_user = "yangwenzhe"
+    else:
+        temp_user = user
+    task1(config[server], temp_user, passwd, server)
