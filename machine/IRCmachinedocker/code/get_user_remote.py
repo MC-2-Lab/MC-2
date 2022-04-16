@@ -118,6 +118,8 @@ user = os.environ["user"]
 passwd = os.environ["passwd"]
 
 if __name__ == "__main__":
+    remote_ip = "buaamc2.net"
+    remote_location = "/var/www/upload/"
     #gen-key
     for server in config:
         print(server)
@@ -130,7 +132,11 @@ if __name__ == "__main__":
             os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,config[server]))
         except:
             print("ssh ken gen error for {}".format(server))
-
+    try:
+        os.system('ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(remote_ip))
+        os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,remote_ip))
+    except:
+        print("remote vps connect fail")
     while 1:
         for server in config:
             try:
@@ -143,7 +149,10 @@ if __name__ == "__main__":
             except:
                 print(server + " can not connect.")
             time.sleep(1)
-        time.sleep(5)
+        try:
+            p = os.popen('sshpass -p \"{}\" scp /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
+        except:
+            print("remote vps transport fail")
 
 
 def debug(server="509"):

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>服务器状态</title>
+
+
+<style type="text/css">
+  textarea{
+    	border:0;
+  	background-color:transparent;
+  	/*scrollbar-arrow-color:yellow;
+  	scrollbar-base-color:lightsalmon;
+  	overflow: hidden;*/
+  	color: #666464;
+  	height: auto;
+  }
+</style>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script> 
+<script>
+$(function(){
+setInterval(function() {
+$("#s930").load('http://buaamc2.net/upload/930.txt');
+$("#s509").load('http://buaamc2.net/upload/509.txt');
+$("#s401").load('http://buaamc2.net/upload/401.txt');
+$("#s207").load('http://buaamc2.net/upload/207.txt');
+$("#s2080").load('http://buaamc2.net/upload/2080.txt');
+$("#s30901").load('http://buaamc2.net/upload/30901.txt');
+$("#s30902").load('http://buaamc2.net/upload/30902.txt');
+$("#s220").load('http://buaamc2.net/upload/220.txt');
+$("#sali4k").load('http://buaamc2.net/upload/ali4k.txt');
+$("#sali8k").load('http://buaamc2.net/upload/ali8k.txt');
+},1000);
+
+
+
+});
+</script>
+</head>
+<body>
+<textarea  id="s930"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s30901"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s30902"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s509"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s401"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s207"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s2080"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="s220"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="sali4k"  cols="30" rows="30" readonly>
+</textarea >
+<textarea  id="sali8k"  cols="30" rows="30" readonly>
+</textarea >
+
+<!-- <input type="text"  id="textbox" /> -->
+
+
+<br><br>
+
+<!-- <a href="http://buaamc2.net:81">返回IRC后台页面</a> -->
+
+</body>
+</html>
