@@ -81,8 +81,8 @@ start
 ### 1.0 vue+nginx加账号密码版
 见vue81html文件夹
 ### 2.0(*) 在线文档版
-使用飞书在线excel进行加密，备份文件见vue81html/内部网站2.0在线文档版/excel文件
-
+使用飞书在线excel进行加密，备份文件见vue81html/内部网站2.0在线文档版/excel文件  
+http://buaamc2.net/machine
 
 # 4.0 看板docker配置及更新
 ```
@@ -99,3 +99,5 @@ build
 # 启动
 start
 ```
+最终效果  
+http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html
