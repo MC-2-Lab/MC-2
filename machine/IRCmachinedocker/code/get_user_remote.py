@@ -107,7 +107,7 @@ config = {
     "401":"10.134.162.193",
     "2080":"10.134.162.90",
     "207":"10.134.162.162",
-    "30901":"10.130.156.192",
+    "30901":"10.130.157.44",
     "30902":"10.130.158.90",
     "930": "10.134.126.158",
     "220": "183.129.176.220",
@@ -155,9 +155,9 @@ if __name__ == "__main__":
             print("remote vps transport fail")
 
 
-def debug(server="509"):
-    if server=="220":
-        temp_user = "yangwenzhe"
-    else:
-        temp_user = user
-    task1(config[server], temp_user, passwd, server)
+# def debug(server="509"):
+#     if server=="220":
+#         temp_user = "yangwenzhe"
+#     else:
+#         temp_user = user
+#     task1(config[server], temp_user, passwd, server)
