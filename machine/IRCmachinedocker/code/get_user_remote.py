@@ -1,5 +1,6 @@
 import os
 import time
+from p2pinfo import *
 # import psutil
 
 def task1(ip,user,passwd,machine_name):
@@ -102,30 +103,17 @@ def task1(ip,user,passwd,machine_name):
     f.close()
     # print(write_out)
 ############
-config = {
-    "509": "10.135.206.119",
-    "401":"10.134.162.193",
-    "2080":"10.134.162.90",
-    "207":"10.134.162.162",
-    "30901":"10.130.157.44",
-    "30902":"10.130.158.90",
-    "930": "10.134.126.158",
-    "220": "183.129.176.220",
-    "ali4k": "121.40.238.191",
-    "ali8k": "47.96.9.177",
-}
+
 user = os.environ["user"]
 passwd = os.environ["passwd"]
 
 if __name__ == "__main__":
-    remote_ip = "buaamc2.net"
-    remote_location = "/var/www/upload/"
     #gen-key
     for server in config:
         print(server)
         try:
-            if server=="220":
-                temp_user = "yangwenzhe"
+            if server in special_user.keys():
+                temp_user = special_user[server]
             else:
                 temp_user = user
             os.system('ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(config[server]))
@@ -140,8 +128,8 @@ if __name__ == "__main__":
     while 1:
         for server in config:
             try:
-                if server=="220":
-                    temp_user = "yangwenzhe"
+                if server in special_user.keys():
+                    temp_user = special_user[server]
                 else:
                     temp_user = user
                 task1(config[server], temp_user, passwd, server)
@@ -156,8 +144,8 @@ if __name__ == "__main__":
 
 
 # def debug(server="509"):
-#     if server=="220":
-#         temp_user = "yangwenzhe"
+#     if server in special_user.keys():
+#         temp_user = special_user[server]
 #     else:
 #         temp_user = user
 #     task1(config[server], temp_user, passwd, server)

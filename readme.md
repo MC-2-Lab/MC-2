@@ -86,12 +86,12 @@ start
 
 # 4.0 看板docker配置及更新
 ```
+# 只需任意配置一台校内机器跑IRCmachinedocker即可
 cd machine/IRCmachinedocker
 
 # 配置运行
-. env.sh user password # 使用所有机器共有的账号，特例见code/get_user_remote.py最后
-# 如果ip有变动，修改code/get_user_remote.py 200行左右的ip地址字典
-# 修改后git push  机器端git pull 再docker restart即可
+. env.sh user password # 使用所有机器共有的账号，特例见code/p2pinfo.py
+# 如果ip有变动，修改code/p2pinfo.py, 修改后git push  机器端git pull 再docker restart即可
 
 # 如果没有镜像则进行编译，后续修改代码不需要重新编译
 build
