@@ -84,7 +84,7 @@ start
 使用飞书在线excel进行加密，备份文件见vue81html/内部网站2.0在线文档版/excel文件  
 http://buaamc2.net/machine
 
-# 4.0 看板docker配置及更新
+# 4 看板docker配置及更新
 ```
 # 只需任意配置一台校内机器跑IRCmachinedocker即可
 cd machine/IRCmachinedocker
