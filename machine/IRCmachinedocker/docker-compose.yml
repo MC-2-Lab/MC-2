@@ -5,7 +5,7 @@ services:
     environment:
       - user=${user}
       - passwd=${passwd}
-    command: bash -c "service nginx start && python3 code/get_user_remote.py > machine.log 2>&1"
+    command: bash -c "service nginx start && python3 code/get_user_remote.py > /src/machine.log 2>&1"
     ports:
       - "82:82"
     volumes:
