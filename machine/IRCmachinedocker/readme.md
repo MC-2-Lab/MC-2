@@ -15,4 +15,8 @@ docker commit xxx xxx
 
 之后重新从镜像创建容器时 start 即可
 
+
+# 运行日志查看
+cat machine.log
+
 ```
