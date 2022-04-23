@@ -1,8 +1,8 @@
 ```
 . env ywz passwd
 
+#若第一次进入
 build
-#第一次进入的话
 site
 sh /tmp/build.sh
 把所有的ssh连一边建立key
@@ -13,6 +13,6 @@ sh /tmp/build.sh
 docker commit xxx xxx
 
 
-之后 start 即可
+之后重新从镜像创建容器时 start 即可
 
 ```
