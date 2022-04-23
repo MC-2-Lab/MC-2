@@ -127,6 +127,7 @@ if __name__ == "__main__":
         print("remote vps connect fail")
     while 1:
         for server in config:
+            print("{} starting:".format(server))
             try:
                 if server in special_user.keys():
                     temp_user = special_user[server]
