@@ -139,6 +139,7 @@ if __name__ == "__main__":
             time.sleep(1)
         try:
             p = os.popen('sshpass -p \"{}\" scp /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
+            print("remote vps transport ok")
         except:
             print("remote vps transport fail")
         print(str(time.asctime( time.localtime(time.time()) )))
