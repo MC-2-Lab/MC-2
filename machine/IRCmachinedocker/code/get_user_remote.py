@@ -13,19 +13,19 @@ def task1(ip,user,passwd,machine_name):
     # out_mem = psutil.virtual_memory().percent
     #ssh测量
     # cpu> top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}'
-    p = os.popen('sshpass -p \"{}\" ssh {}@{} "top -bn1 | grep load"'.format(passwd,user,ip))
+    p = os.popen('timeout 5s sshpass -p \"{}\" ssh {}@{} "top -bn1 | grep load"'.format(passwd,user,ip))
     out = p.read()
     out_cpu = out.split()[-3].strip(",")
 
     # mem> free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
-    p = os.popen('sshpass -p \"{}\" ssh {}@{} "free -m "'.format(passwd,user,ip))
+    p = os.popen('timeout 5s sshpass -p \"{}\" ssh {}@{} "free -m "'.format(passwd,user,ip))
     out = p.read()
     used_mem = float(out.split("\n")[1].split()[2])
     all_mem = float(out.split("\n")[1].split()[1])
     out_mem = "{:.2f}".format(used_mem/all_mem)
 
     nvidia_version = ""
-    p = os.popen('sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
+    p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
 
     out = p.read()
     # print(out)
@@ -58,7 +58,7 @@ def task1(ip,user,passwd,machine_name):
                     if temp_data[kk]!='|' and temp_data[kk]!='':
                         temp_user.append(temp_data[kk])
                 #获取用户名
-                p = os.popen('sshpass -p "{}" ssh {}@{} ps -f -p'.format(passwd,user,ip) + str(temp_user[-4]))
+                p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} ps -f -p'.format(passwd,user,ip) + str(temp_user[-4]))
                 out = p.read().split('\n')[1].split(' ')[0]
 
                 if temp_user[0] in all_data.keys():
@@ -116,13 +116,13 @@ if __name__ == "__main__":
                 temp_user = special_user[server]
             else:
                 temp_user = user
-            os.system('ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(config[server]))
-            os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,config[server]))
+            os.system('timeout 5s ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(config[server]))
+            os.system('timeout 5s sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,config[server]))
         except:
             print("ssh ken gen error for {}".format(server))
     try:
-        os.system('ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(remote_ip))
-        os.system('sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,remote_ip))
+        os.system('timeout 5s ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(remote_ip))
+        os.system('timeout 5s sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,remote_ip))
     except:
         print("remote vps connect fail")
     while 1:
@@ -139,7 +139,7 @@ if __name__ == "__main__":
                 print(server + " can not connect.")
             time.sleep(1)
         try:
-            p = os.popen('sshpass -p \"{}\" scp /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
+            p = os.popen('timeout 30s sshpass -p \"{}\" scp /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
             print("remote vps transport ok")
         except:
             print("remote vps transport fail")
