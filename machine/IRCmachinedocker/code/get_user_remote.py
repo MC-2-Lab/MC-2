@@ -141,7 +141,7 @@ if __name__ == "__main__":
             p = os.popen('sshpass -p \"{}\" scp /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
         except:
             print("remote vps transport fail")
-
+    print(str(time.asctime( time.localtime(time.time()) )))
 
 # def debug(server="509"):
 #     if server in special_user.keys():
