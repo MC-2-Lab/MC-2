@@ -22,7 +22,7 @@ def task1(ip,user,passwd,machine_name,port):
     out = p.read()
     used_mem = float(out.split("\n")[1].split()[2])
     all_mem = float(out.split("\n")[1].split()[1])
-    out_mem = "{:.2f}".format(used_mem/all_mem)
+    out_mem = "{:.2f}".format(used_mem/all_mem*100)
 
     nvidia_version = ""
     p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} -p {} nvidia-smi'.format(passwd,user,ip,port))
