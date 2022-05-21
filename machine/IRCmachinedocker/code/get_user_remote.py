@@ -3,7 +3,7 @@ import time
 from p2pinfo import *
 # import psutil
 
-def task1(ip,user,passwd,machine_name):
+def task1(ip,user,passwd,machine_name,port):
     file_name = '/src/{}.txt'.format(machine_name)
     out_cpu = ""
     out_mem = ""
@@ -13,19 +13,19 @@ def task1(ip,user,passwd,machine_name):
     # out_mem = psutil.virtual_memory().percent
     #ssh测量
     # cpu> top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}'
-    p = os.popen('timeout 5s sshpass -p \"{}\" ssh {}@{} "top -bn1 | grep load"'.format(passwd,user,ip))
+    p = os.popen('timeout 5s sshpass -p \"{}\" ssh {}@{} -p {} "top -bn1 | grep load"'.format(passwd,user,ip,port))
     out = p.read()
     out_cpu = out.split()[-3].strip(",")
 
     # mem> free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
-    p = os.popen('timeout 5s sshpass -p \"{}\" ssh {}@{} "free -m "'.format(passwd,user,ip))
+    p = os.popen('timeout 5s sshpass -p \"{}\" ssh {}@{} -p {} "free -m "'.format(passwd,user,ip,port))
     out = p.read()
     used_mem = float(out.split("\n")[1].split()[2])
     all_mem = float(out.split("\n")[1].split()[1])
     out_mem = "{:.2f}".format(used_mem/all_mem)
 
     nvidia_version = ""
-    p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} nvidia-smi'.format(passwd,user,ip))
+    p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} -p {} nvidia-smi'.format(passwd,user,ip,port))
 
     out = p.read()
     # print(out)
@@ -58,7 +58,7 @@ def task1(ip,user,passwd,machine_name):
                     if temp_data[kk]!='|' and temp_data[kk]!='':
                         temp_user.append(temp_data[kk])
                 #获取用户名
-                p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} ps -f -p'.format(passwd,user,ip) + str(temp_user[-4]))
+                p = os.popen('timeout 5s sshpass -p "{}" ssh {}@{} -p {} ps -f -p'.format(passwd,user,ip,port) + str(temp_user[-4]))
                 out = p.read().split('\n')[1].split(' ')[0]
 
                 if temp_user[0] in all_data.keys():
@@ -116,8 +116,13 @@ if __name__ == "__main__":
                 temp_user = special_user[server]
             else:
                 temp_user = user
+            if server in special_port.keys():
+                port = special_port[server]
+            else:
+                port = '22'
+
             os.system('timeout 5s ssh-keygen -f "/root/.ssh/known_hosts" -R "{}"'.format(config[server]))
-            os.system('timeout 5s sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} &'.format(passwd,temp_user,config[server]))
+            os.system('timeout 5s sshpass -p "{}" ssh -q -o StrictHostKeyChecking=no {}@{} -p {} &'.format(passwd,temp_user,config[server],port))
         except:
             print("ssh ken gen error for {}".format(server))
     try:
@@ -133,7 +138,13 @@ if __name__ == "__main__":
                     temp_user = special_user[server]
                 else:
                     temp_user = user
-                task1(config[server], temp_user, passwd, server)
+
+                if server in special_port.keys():
+                    port = special_port[server]
+                else:
+                    port = '22'
+
+                task1(config[server], temp_user, passwd, server, port)
                 print("server {} task1 done".format(server))
             except:
                 print(server + " can not connect.")
