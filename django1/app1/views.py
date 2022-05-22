@@ -16,30 +16,21 @@ def api(request):
     if request.method == 'POST' and request.body:
         # try:
         http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
-        http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')
+        http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '') #sha1=6e79fdec49423438ad223ceac8162b5e35ccbcbd
         json_data = json.loads(request.body)
-        # except:
-        #     json_data = request.POST.dict()
         print(json_data)
-        repo_data = json_data.get('repository', '')
-        sender_data = json_data.get('sender', '')
+        repo_data = json_data.get('repository', '') #{"name": "MC-2",...}
+        sender_data = json_data.get('sender', '')#{"login":"ywz9",...}
         if http_x_hub_signature:
             repo_name = repo_data.get('name', '')
             sha_name, signature = http_x_hub_signature.split('=')
-            if "MC" in str(repo_name) and "ywzbuaamc2" in str(signature): # and http_x_github_event == 'push':
+            if "MC-2" == str(repo_name) and "6e79fdec49423438ad223ceac8162b5e35ccbcbd" == signature: # and http_x_github_event == 'push':
                 print("push webhook start")
                 print(sender_data)
                 # Do your webhook job
                 # such as restarting a docker container.
                 os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
                 return HttpResponse('push webhook done!')
-        print("0000000000000")
-        print(http_x_hub_signature)
-        print(repo_data)
-        print(sender_data)
-        print(repo_name)
-        print(signature)
-        
         # except:
         #     print("POST webhook error")
         # if repo_data and sender_data and http_x_hub_signature:
