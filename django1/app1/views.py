@@ -15,24 +15,24 @@ def api(request):
     ##github webhook
     if request.method == 'POST' and request.body:
         print(request.body)
-        try:
-            http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
-            http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')
-            json_data = json.loads(request.body)
-            repo_data = json_data.get('repository', '')
-            sender_data = json_data.get('sender', '')
-            if http_x_hub_signature:
-                repo_name = repo_data.get('name', '')
-                sha_name, signature = http_x_hub_signature.split('=')
-                if "MC" in str(repo_name) and "ywzbuaamc2" in str(signature) and http_x_github_event == 'push':
-                    print("push webhook start")
-                    print(sender_data)
-                    # Do your webhook job
-                    # such as restarting a docker container.
-                    os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f")
-                    return HttpResponse('push webhook done!')
-        except:
-            print("POST webhook error")
+        # try:
+        http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
+        http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')
+        json_data = json.loads(request.body)
+        repo_data = json_data.get('repository', '')
+        sender_data = json_data.get('sender', '')
+        if http_x_hub_signature:
+            repo_name = repo_data.get('name', '')
+            sha_name, signature = http_x_hub_signature.split('=')
+            if "MC" in str(repo_name) and "ywzbuaamc2" in str(signature): # and http_x_github_event == 'push':
+                print("push webhook start")
+                print(sender_data)
+                # Do your webhook job
+                # such as restarting a docker container.
+                os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f")
+                return HttpResponse('push webhook done!')
+        # except:
+        #     print("POST webhook error")
         # if repo_data and sender_data and http_x_hub_signature:
         #     user_id = sender_data.get('id', '')
         #     user_name = sender_data.get('login', '')
