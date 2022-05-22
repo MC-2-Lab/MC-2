@@ -14,7 +14,6 @@ from app1.AES import aesDecrypt, aesEncrypt
 def api(request):
     ##github webhook
     if request.method == 'POST' and request.body:
-        print(request.body)
         # try:
         http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
         http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')
@@ -35,6 +34,7 @@ def api(request):
                 os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
                 return HttpResponse('push webhook done!')
         print("0000000000000")
+        print(http_x_hub_signature)
         print(repo_data)
         print(sender_data)
         print(repo_name)
