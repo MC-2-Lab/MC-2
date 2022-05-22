@@ -1,3 +1,4 @@
+<!-- {{resdata}} <button @click="get_decode('xxxxxg==')">点击解密</button> -->
 <!DOCTYPE html>
 <html>
 
@@ -11,6 +12,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script src="js/vue.global.js"></script>
+    <script src="js/jquery.js"></script> 
 
 </head>
 
@@ -48,8 +50,10 @@
                         <a href="javascript:void(0);" @click="button2"><span class="nav-label">内网穿透</span></a>
                         <a href="javascript:void(0);" @click="button3"><span class="nav-label">科学上网</span></a>
                         <a href="javascript:void(0);" @click="button4"><span class="nav-label">公用信息板</span></a>
-
-                        <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BE%A4%E5%85%8D%E5%AF%86%E5%8F%8A%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5"><span class="nav-label">多端同步</span></a>
+                        <a href="javascript:void(0);" @click="button5"><span class="nav-label">AES加密结果查询</span></a>
+                        
+                        
+                        <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BE%A4%E5%85%8D%E5%AF%86%E5%8F%8A%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5"><span class="nav-label">脚本工具百宝箱</span></a>
 
 
                         <li class="divider"></li>
@@ -190,141 +194,54 @@
 
             <div class="wrapper wrapper-content animated fadeInRight">
                 <center>
+                    <div>
+                        AES密钥(密码提示:IRC最常用的最会房间号):<br>
+                        <input text="123" class="ui-button-text" style="border:1px solid #378888;border-radius:5px;font-size:18px;text-align:center;" type="text" id="input1"/><br>
+                        最近一次解密结果<div style="color:red; ">{{resdata}} </div><br>
+                    </div>
 
                     <div id="right-row" class="row" v-if="seen[0]">
+                        <br><br><br>
                         <div style="font-size:20px">
-                        =====================================<br>
-                        本网站停止更新, 所有内容换到飞书文档中, 便于维护<br>
-                        <a href="https://j1gkjgppjx.feishu.cn/space/sheet/shtcnnHjLZjRbnw38PxkcZ6ucVg">点此跳转至飞书文档 文档密码：  SR4N</a> <br>
-                        =====================================<br>
-                        </div>
-                        <br>
-                        <br><br><br><br><br>
-                        <div style="font-size:10px">
-                            <!-- {{todos[0].text}} -->
-                            (5秒自动刷新GPU/CPU) 点击链接跳转
-                            <br><br><br> - IRC所有服务器：<br><br>
-                            <a href="all.html"><button style="color: blue;">IRC所有服务器用户占用情况(内网版)</button></a><br><br>
-                            <!--<a href="all_externel.html"><button style="color: blue;">IRC所有服务器用户占用情况(外网版)</button></a> <br>-->
-                            <br><br><br>
-
-                            <table border="1" style="text-align:center;">
-                                <tr>
-                                    <td>标识号</td>
-                                    <td>内网ip</td>
-                                    <td>内网端口</td>
-                                </tr>
-                                <!-- <tr>
-                                    <td>40cpu</td>
-                                    <td style="color: blue;">10.134.163.119</td>
-                                    <td>22</td>
-
-                                    <!-- <td><a href="http://10.134.162.251/status.html">http://10.134.162.251/status.html</a></td> -->
-                                    <!-- <td><a href="http://509_http.sharklet.buaamc2.net/status.html">http://509_http.sharklet.buaamc2.net/status.html</a></td> -->
-                                </tr>
-                                <tr>
-                                    <td>509</td>
-                                    <td style="color: blue;">10.134.162.159</td>
-                                    <td>22</td>
-
-                                    <!-- <td><a href="http://10.134.162.251/status.html">http://10.134.162.251/status.html</a></td> -->
-                                    <!-- <td><a href="http://509_http.sharklet.buaamc2.net/status.html">http://509_http.sharklet.buaamc2.net/status.html</a></td> -->
-                                </tr>
-
-                                <tr>
-                                    <td>2080</td>
-                                    <td style="color: blue;">10.134.162.6</td>
-                                    <td>22</td>
-                                </tr>
-
-                                <tr>
-                                    <td>401</td>
-                                    <td style="color: blue;">10.134.163.137</td>
-                                    <td>22</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>207</td>
-                                    <td style="color: blue;">10.134.162.162</td>
-                                    <td>22</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>3090</td>
-                                    <td style="color: blue;">10.134.163.209</td>
-                                    <td>22</td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>402</td>
-                                    <td style="color: blue;">10.130.159.225</td>
-                                    <td>22</td>
-
-                                </tr>
-
-                                <!-- <tr> -->
-                                <!-- <td>F518</td> -->
-                                <!-- <td><a href="http://10.135.161.171/status.html">http://10.135.161.171/status.html</a></td> -->
-                                <!-- <td><a href="http://F518_http.sharklet.buaamc2.net/status.html">http://F518_http.sharklet.buaamc2.net/status.html</a></td> -->
-                                <!-- </tr> -->
-                            </table>
-
-                            <br><br> Win10桌面端版本：
-                            <a href="http://buaamc2.net:81/gpuwatcher.rar">点击下载解压后运行exe</a><br>
-                            <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%88%B7%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5">本节功能代码备份</a>
+                            校内服务器管理 <br>
+                            <a href="http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html">点击链接跳转查看看板信息</a>
+                            <br><br>
+                            
+                            <a href="javascript:void(0);" @click="loadp2p">查看最新ip及端口(默认22) 点击查询</a><br>
+                            <!-- <a href="http://buaamc2.net//machine/IRCmachinedocker/code/p2pinfo.py">查看最新ip及端口(默认22) 如下</a><br> -->
+                            <textarea  id="p2pinfo"  cols="50" rows="30" style="text-align:center;" readonly></textarea >
+                            <br><br>
+                            服务器公用账号<br>
+                            账号: ywz<br>
+                            密码:{{resdata}} <button @click="get_decode('QaXXH8skJElPCFRti/n7Qg==')">点击解密</button><br>
+                            <br><br>
+                            其他如Docker部署等工具请点击左侧百宝箱进行跳转<br>
                         </div>
                     </div>
 
                     <div id="right-row" class="row" v-if="seen[1]">
                         <div style="font-size:20px">
-                            <!-- {{todos[1].text}} -->
-                            <!--
-                    原理:校内服务器ssh通过frp连到我们实验室的国外节点<br>
-                    不同服务器仅端口号不同
-
-<br><br><br>
-<h2 style="color: blue;">ip地址：</h2>
-主穿透服务器:45.32.60.237 或 frp0.buaamc2.net
-<br>
-备用穿透服务器: 198.13.52.142
-<br>
-<h2 style="color: blue;">端口号：</h2>
-- 509：port:6001 <br>
-- 2080：port:6002 <br>
-- 401：port:6004 <br>
-- 207：port:6005 <br>
-<br>
-- F518：port:6003 <br>
-- 402：port:6006 <br>
-- WSL：port:6007 <br>
-- Jianyi: port:6008 <br>
--->
                             <br>
                             <h2 style="color: blue;">花生壳内网穿透</h2>
                             <br> 传大文件请用北航云盘或腾讯COS盘等直链静态文件服务器或校内互传
-                            <br> 推荐专用花生壳设备隧道：
-                            <br> 3090：[467830y6j3.zicp.vip:57009] (参考下图 跳板机账号为3090任意账号)
-                            <br> 207：[467830y6j3.zicp.vip:32027]  (参考下图 跳板机账号为207任意账号)
+                            <br> 推荐专用花生壳设备隧道 账号如果没有跳板机对应服务器账号，可以使用公共账号：
+                            <br> 跳板机1：<button @click="get_decode('vm+cbyoqiqUjD8JYe9/PJQug/J0DwF2Qg+/9I/y+hhVCt9RQwFUB4CG6ruToVvtQ')">点击解密</button>
+                            <br> 跳板机2：<button @click="get_decode('v87QqHbgnH5e/t8m+ZUUH5JOkgruhWkVoXGrvWhCymhCt9RQwFUB4CG6ruToVvtQ')">点击解密</button>
+                            <br><div style="color: red;">{{resdata}}</div>
                             <br> 
-                            <br> 509自建phddns：[370581k45d.wicp.vip:57526] (见下图 跳板机账号为509任意账号)
-                            <br> 其他服务器可以登陆后再进行ssh跳转 推荐使用mobaxterm软件自带转发工具搭配使用：
-                            <br>
-                            <img src="img/chuantou.png" /><br>
+                            <br> 其他服务器可以登陆后再进行ssh跳转 <br>
+                            <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E7%8E%A9%E8%BD%AC%E8%B7%B3%E6%9D%BF%E6%9C%BA" style="color: red;">用法可参考玩转跳板机页面-支持脚本&vscode&mobaxterm等多种方式，点此查看</a>
                             <br><br><br>
-                            <h2 style="color: blue;">非22端口穿透查看/TensorboardX面板远程查看</h2>
-                            或eg: 本机输入类似ssh -L 127.0.0.1:8008:127.0.0.1:6006 user@frp0.buaamc2.net -p 3000
+                            <h2>非22端口穿透查看/TensorboardX面板远程查看</h2>
+                            或eg: 本机输入类似ssh -L 127.0.0.1:8008:127.0.0.1:6006 user@remote_ip -p 3000
                             <br> 其中127.0.0.1:8008是本机B对应的ip端口，127.0.0.1:6006是远端要转发的C机对自己的ip+端口
-                            <br> user是用户名，frp0.buaamc2.net和-p 3000可以换成对应B--(ssh)->C机远程对应的ip/域名和端口(默认22)
+                            <br> user是用户名，remote_ip和-p 3000可以换成对应B--(ssh)->C机远程对应的ip/域名和端口(默认22)
                             <br>
-                            <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/ssh%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95-%E5%8F%8C%E5%90%91%E4%BB%A3%E7%90%86">点此查看详细说明</a>
+                            <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/ssh%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95-%E5%8F%8C%E5%90%91%E4%BB%A3%E7%90%86">点此查看ssh命令其他用法详细说明</a>
                             <br><br><br>
                             <!-- 其他服务器如果有需求，请联系杨文哲.<br> -->
-                            frp后台界面 www.sharklet.buaamc2.net:6443
                             <br>
-                            <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/frp">本节功能代码备份</a>
+                            <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/frp">frp代码备份</a>
 
                         </div>
                     </div>
@@ -334,61 +251,47 @@
                             <!-- {{todos[2].text}} -->
                             <h2 style="color: blue;">1.1软件获取</h2>
                             <!-- <a href="http://buaamc2.net:81/">所有文件目录</a><br> -->
-                            <a href="http://buaamc2.net:81/v2rayN.rar">Win端 --点击链接下载后解压</a><br>
-                            <a href="http://buaamc2.net:81/v2rayNG_1.3.3.apk">安卓端--点击链接下载</a><br> ios端：使用美区账号下载shadowsocket(shadowrocket) <a href="https://www.kuaifaka.com/purchasing?link=BlZcV1">美区苹果商店账号获取</a> <br>
+                            <a href="files/v2rayN.rar">Win端 --点击链接下载后解压</a><br>
+                            <a href="files/v2rayNG_1.3.3.apk">安卓端--点击链接下载</a><br> ios端：使用美区账号下载shadowsocket(shadowrocket) <a href="https://www.kuaifaka.com/purchasing?link=BlZcV1">美区苹果商店账号获取</a> <br>
 
                             <h2 style="color: blue;">1.2使用方法</h2>
                             Win端--解压到文件夹后打开V2rayN.exe（蓝色图标）<br> 再复制以下任意一个节点链接，选择从剪贴板导入即可。
                             <br> IOS/安卓端--复制以下任意一个节点链接，选择从剪贴板导入即可。
 
-                            <h2 style="color: blue;">1.3节点列表</h2>
-                            更新时间 2021-09-23
-                            
+                            <h2 style="color: blue;">1.3订阅链接</h2>
                             <br>
-                            单节点列表
+                            单节点列表 - 暂不更新，改为使用机场服务订阅自动更新导入节点
                             <br>
-                            <a href="vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiamFwYW5yYXkyLmJ1YWFtYzIubmV0IiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjJhNDEwMGVhLTU2YjQtNDgxNi1hYTA4LTVlYzI3YjUyMzVkNiIsDQogICJhaWQiOiAiMCIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiamFwYW5yYXkyLmJ1YWFtYzIubmV0IiwNCiAgInBhdGgiOiAiL2phcGFuX2lyYyIsDQogICJ0bHMiOiAidGxzIg0KfQ==">
-                            日本-v2ray[ws+tls+web]</a>
-                            <br>
-                            <a href="vmess://eyJwcyI6IkpNUy00MDA5MThAYzg2czMuamFtamFtcy5uZXQ6NTc5OTgiLCJhZGQiOiJjODZzMy5qYW1qYW1zLm5ldCIsInBvcnQiOiI1Nzk5OCIsImlkIjoiNWU0NjhhYzgtMDE2ZS00MTZmLTg2MWItMmQzNDcwN2MxYzNmIiwiYWlkIjo4LCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsInRscyI6Im5vbmUifQ">
-                            [新]机场隧道3</a>
-                            <br>
-                            <a href="vmess://eyJwcyI6IkpNUy00MDA5MThAYzg2czQuamFtamFtcy5uZXQ6NTc5OTgiLCJhZGQiOiJjODZzNC5qYW1qYW1zLm5ldCIsInBvcnQiOiI1Nzk5OCIsImlkIjoiNWU0NjhhYzgtMDE2ZS00MTZmLTg2MWItMmQzNDcwN2MxYzNmIiwiYWlkIjo4LCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsInRscyI6Im5vbmUifQ">
-                            [新]机场隧道4</a>
-                            <br>
-                            <a href="vmess://eyJwcyI6IkpNUy00MDA5MThAYzg2czUuamFtamFtcy5uZXQ6NTc5OTgiLCJhZGQiOiJjODZzNS5qYW1qYW1zLm5ldCIsInBvcnQiOiI1Nzk5OCIsImlkIjoiNWU0NjhhYzgtMDE2ZS00MTZmLTg2MWItMmQzNDcwN2MxYzNmIiwiYWlkIjo4LCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsInRscyI6Im5vbmUifQ">
-                            [新]机场隧道5</a>
-                            <br>
-                            <p>复制后，在v2ray软件中添加-从剪切板添加即可，每个链接是单独一个节点。</p>
-                            
                             <br>
                             <div style="font-size:30px">⬇⬇推荐使用机场订阅-自动更新订阅后创建⬇⬇</div>
+                            (需AES输入密码解密)
                             <br>
-                            
-                            <a href="https://jmssub.net/members/getsub.php?service=400918&id=5e468ac8-016e-416f-861b-2d34707c1c3f">
-                            [新]机场订阅链接 右键选择复制链接</a>
+                            Justmysocks1: 
+                            <div style="color:red;"> <button @click="get_decode('rHawN3K/bGhtk/mL2VYqVNttKUnhxLjIL6EULPxuTnRT586WBtCxnaxwrPWCoqgm/n5uFtnTr9V8qHx3O9GJ+ebHdJxv4j4GfZoMie6FdmQhdJAeW/nhv4okS6eujs+l')">点击解密</button></div>
+                            <br>
+                            Justmysocks2: 
+                            <div style="color:red;"><button @click="get_decode('rHawN3K/bGhtk/mL2VYqVNttKUnhxLjIL6EULPxuTnRj9DaLqyCndAl6984Iu8covKF5Meme2blAEgmwDRpbnhqBjolvwby4CFmgUJr+IH7j8WSAT70hWPecb1J8G0aq')">点击解密</button></div>
+                            <br>
+                            <div style="color: red;">{{resdata}}</div>
+                            <br>
+                            [新]机场订阅链接 复制链接导入至软件的订阅内
                             <br>
                             <br>
                             <p>复制后，在v2ray软件中"订阅"-"订阅设置"添加url即可，添加后点击更新订阅，会自动更新五条隧道。</p>
                             <br><br>
 
                             <h2 style="color: blue;">1.4 校内专用：校园网免流量+国内直连国外自动代理 节点列表</h2>
-                            更新时间 2021-09-23
+                            更新时间 2022-05-21
                             <br>
-                            <a href="ss://YWVzLTI1Ni1nY206MndxT3VvaWJobTNHbFFTTkAxMC4xMzQuMTI3LjE0Nzo0NzA0Mg==#402-ss">402:内网梯子链接[ss->kcp]</a>
+                            402(930):内网梯子链接[ss->kcp]
+                            <div style="color:red;">{{resdata}} <button @click="get_decode('XmNypK7CGDhdA1nm+ykT4VL4qJszRRgY91I0OCKNQPIYjz6Y9JVWxzfCOUNLyqBkPy+vHO0O4gBle7u65nMz2+f3oMPrG9BMhatYI4nXnryYdBnVaYDAz9dq12FmhIkT')">点击解密</button></div>
                             <br>
                             <p>使用方法类似1.3，不同的是所有的代理都要切换为全局(路由预定义规则 和 HTTP代理规则两项)<br>速度几乎不受影响，但延时测试会稍大一些，兼容内网ip和国内直连<br>原理为二级梯子，校内ip互连不费流量.<a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/v2ray%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/%E5%86%85%E7%BD%91%E6%A2%AF%E5%AD%90">制作方法</a>                                </p>
-
-
 
                             <br><br>
                             <h2 style="color: blue;">1.5 假装在校内：校外使用将所有流量代理至校内 节点列表</h2>
                             更新时间 2020-05-23
                             --停止维护--
-                            <br>
-                            <a href="ss://YWVzLTI1Ni1nY206MndxT3VvaWJobTNHbFFTTkA0NS4zMi42MC4yMzc6NTA0Mg==#402-ss-frp">402+frp</a>
-                            <p>使用方法与1.4相同，导入节点后，即可代理全部流量，原理为1.4基础上将端口利用frp穿透至外网节点，速度可能较慢</p>
-                            <br>
 
                             <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/v2ray%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC">本节功能代码备份</a>
 
@@ -400,7 +303,7 @@
                             <h1>账号信息</h1>
                             <h2 style="color: blue;">Vultr.com VPS网站</h2>
                             账号 account@buaamc2.net
-                            <br> 密码 MaiXuIRC403Vultr
+                            <br> 密码 {{resdata}} <button @click="get_decode('lNKn4rbE4dgF9NmdILB7BJh0GdVpgMDP12rXYWaEiRM=')">点击解密</button>
                             <br><br><br><br><br>
 
                             <h1>常用统计链接</h1>
@@ -413,8 +316,15 @@
                         </div>
                     </div>
 
-
-
+                    <div id="right-row" class="row" v-if="seen[4]">
+                        <div style="font-size:20px">
+                            <h1>AES加解密查询</h1>
+                            <input class="ui-button-text" style="border:1px solid #378888;border-radius:5px;font-size:18px;" type="text" id="input2"/><br>
+                            <button @click="get_encode">加密结果查询</button>
+                            <button @click="get_decode('','lack')">解密结果查询</button><br>
+                            <textarea  style="text-align:center;" cols="50" rows="30" readonly>{{resdata}}</textarea >
+                        </div>
+                    </div>
                 </center>
             </div>
 
@@ -436,7 +346,8 @@
         const App = {
             data() {
                 return {
-                    seen: [true, false, false, false],
+                    seen: [true, false, false, false, false],
+                    resdata: "",
                     todos: [{
                         text: 'Learn JavaScript'
                     }, {
@@ -449,30 +360,75 @@
             methods: {
                 button1(event) {
                     console.log("button1")
-                    this.seen = [true, false, false, false]
+                    this.seen = [true, false, false, false, false]
+                    this.resdata="";
+                    this.loadp2p();
                 },
                 button2(event) {
                     console.log("button2")
-                    this.seen = [false, true, false, false]
+                    this.resdata="";
+                    this.seen = [false, true, false, false, false]
                 },
                 button3(event) {
                     console.log("button3")
-                    this.seen = [false, false, true, false]
+                    this.resdata="";
+                    this.seen = [false, false, true, false, false]
                 },
                 button4(event) {
                     console.log("button4")
-                    this.seen = [false, false, false, true]
+                    this.resdata="";
+                    this.seen = [false, false, false, true, false]
+                },
+                button5(event) {
+                    console.log("button5")
+                    this.resdata="";
+                    this.seen = [false, false, false, false, true]
                 },
 
                 hello() {
                     <!-- 欢迎 -->
                     now = new Date(), hour = now.getHours();
                     <!-- alert(hour); -->
-                    alert("本网站停止维护，请从首页根据密码跳转至飞书文档")
-                }
+                },
+                loadp2p(){
+                    $("#p2pinfo").load('../machine/IRCmachinedocker/code/p2pinfo.py');
+                },
+                
+                get_encode(){
+                    var that=this;
+                    if(document.getElementById('input1').value==""){
+                        alert("请输入密钥");
+                        return;
+                    }
+                    var params = {"mode":"encode","key":document.getElementById('input1').value,"context":document.getElementById('input2').value};
+                    $.get('/api/', params, function(data){
+                        console.log(data);
+                        that.resdata = data['data'];
+                    })
+                },
+                get_decode(context, type=""){
+                    var that=this;
+                    that.resdata="";
+                    if(document.getElementById('input1').value==""){
+                        alert("请输入密钥");
+                        return;
+                    }
+                    if(type=="lack")
+                        var params = {"mode":"decode","key":document.getElementById('input1').value,"context":document.getElementById('input2').value};
+                    else
+                        var params = {"mode":"decode","key":document.getElementById('input1').value,"context":context};
+                    console.log(params);
+                    $.get('/api/', params, function(data){
+                        console.log(data);
+                        that.resdata = data['data'];
+                    })
+                },
+
+
             },
             mounted() {
-                this.hello()
+                $("#p2pinfo").load('../machine/IRCmachinedocker/code/p2pinfo.py');
+                this.hello();
             }
         }
 
