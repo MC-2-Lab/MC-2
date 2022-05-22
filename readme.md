@@ -102,3 +102,8 @@ start
 ```
 最终效果  
 http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html
+
+
+信息标准化改造  
+https://j1gkjgppjx.feishu.cn/docs/doccnjgyQDdhwphXpcSsWYi6Grh
+
