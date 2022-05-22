@@ -204,16 +204,16 @@
                         <br><br><br>
                         <div style="font-size:20px">
                             校内服务器管理 <br>
-                            <a href="http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html">点击链接跳转查看看板信息</a>
+                            <a href="http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html">点击跳转查看集群看板信息(实时GPU/CPU)</a>
                             <br><br>
-                            
-                            <a href="javascript:void(0);" @click="loadp2p">查看最新ip及端口(默认22) 点击查询</a><br>
-                            <!-- <a href="http://buaamc2.net//machine/IRCmachinedocker/code/p2pinfo.py">查看最新ip及端口(默认22) 如下</a><br> -->
-                            <textarea  id="p2pinfo"  cols="50" rows="30" style="text-align:center;" readonly></textarea >
-                            <br><br>
+                            <br>
                             服务器公用账号<br>
                             账号: ywz<br>
                             密码:{{resdata}} <button @click="get_decode('QaXXH8skJElPCFRti/n7Qg==')">点击解密</button><br>
+                            <a href="javascript:void(0);" @click="loadp2p">查看最新ip及端口(默认22) 点击查询</a><br>
+                            <textarea  id="p2pinfo"  cols="50" rows="30" style="text-align:center;" readonly></textarea >
+                            <br>
+                            <a href="http://buaamc2.net//machine/IRCmachinedocker/code/p2pinfo.py">如需修改以上信息，请点此跳转到仓库提交MR</a><br>
                             <br><br>
                             其他如Docker部署等工具请点击左侧百宝箱进行跳转<br>
                         </div>
