@@ -1,5 +1,6 @@
 # IRC-Website4.0 : django版&git+docker部署
-
+[IRC计算架构标准化方案](https://j1gkjgppjx.feishu.cn/docs/doccnjgyQDdhwphXpcSsWYi6Grh)
+![框图](img/framework.svg)
 # 1.服务器部署
 ## version
 1.0 纯静态文件  
