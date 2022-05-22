@@ -11,7 +11,6 @@ import os
 from app1.models import * #引用
 from app1.AES import aesDecrypt, aesEncrypt
 
-@csrf_exempt
 def api(request):
     ##github webhook
     if request.method == 'POST' and request.body:
