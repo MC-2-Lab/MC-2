@@ -14,6 +14,7 @@ from app1.AES import aesDecrypt, aesEncrypt
 def api(request):
     ##github webhook
     if request.method == 'POST' and request.body:
+        print(request.body)
         try:
             http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
             http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')

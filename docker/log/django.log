@@ -164,3 +164,12 @@ ywzbuaamc2
 [22/May/2022 17:32:54] "GET /?mode=0&page=1&ini_name=index HTTP/1.0" 200 2493
 {'mode': '0', 'page': '1', 'ini_name': 'index'}
 [22/May/2022 17:32:55] "GET /?mode=0&page=1&ini_name=index HTTP/1.0" 200 2493
+/src/django1/app1/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 22, 2022 - 17:36:43
+Django version 2.2, using settings 'django1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
