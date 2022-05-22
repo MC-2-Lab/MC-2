@@ -79,9 +79,11 @@ start
 ## version
 ### v1.0 vue+nginx加账号密码版
 见vue81html文件夹
-### v2.0(*) 在线文档版
+### v2.0 在线文档版
 使用飞书在线excel进行加密，备份文件见vue81html/内部网站2.0在线文档版/excel文件  
-http://buaamc2.net/machine
+http://buaamc2.net/machine  
+### v3.0(*) 共存+AES加密
+在线文档经常被封，而之前的nginx加密但是源内容在github开源，依然不安全。而且不方便多人修改，于是采用与主站同端口，利用nginx反代提供前端，对加密信息进行AES处理后保存，后端增加AES加解密接口，且ip运维直接提交MR即可，增加webhook网站自动拉取更新。
 
 # 4 看板docker配置及更新
 ```
