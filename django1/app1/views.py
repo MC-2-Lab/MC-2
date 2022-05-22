@@ -18,10 +18,9 @@ def api(request):
         # try:
         http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
         http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')
-        try:
-            json_data = json.loads(request.body)
-        except:
-            json_data = request.POST.dict()
+        json_data = json.loads(request.body)
+        # except:
+        #     json_data = request.POST.dict()
         print(json_data)
         repo_data = json_data.get('repository', '')
         sender_data = json_data.get('sender', '')
@@ -35,6 +34,12 @@ def api(request):
                 # such as restarting a docker container.
                 os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
                 return HttpResponse('push webhook done!')
+        print("0000000000000")
+        print(repo_data)
+        print(sender_data)
+        print(repo_name)
+        print(signature)
+        
         # except:
         #     print("POST webhook error")
         # if repo_data and sender_data and http_x_hub_signature:
