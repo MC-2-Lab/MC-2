@@ -11,6 +11,7 @@ import os
 from app1.models import * #引用
 from app1.AES import aesDecrypt, aesEncrypt
 
+@csrf_exempt
 def api(request):
     ##github webhook
     if request.method == 'POST' and request.body:
@@ -22,6 +23,7 @@ def api(request):
             json_data = json.loads(request.body)
         except:
             json_data = request.POST.dict()
+        print(json_data)
         repo_data = json_data.get('repository', '')
         sender_data = json_data.get('sender', '')
         if http_x_hub_signature:
