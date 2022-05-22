@@ -18,7 +18,10 @@ def api(request):
         # try:
         http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
         http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '')
-        json_data = json.loads(request.body)
+        try:
+            json_data = json.loads(request.body)
+        except:
+            json_data = request.POST.dict()
         repo_data = json_data.get('repository', '')
         sender_data = json_data.get('sender', '')
         if http_x_hub_signature:
