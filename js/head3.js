@@ -8,7 +8,7 @@ document.writeln("	</head>");
 document.writeln("		<header>");
 document.writeln("			<div class=\'container\'>");
 document.writeln("				<div class=\'logo\'>");
-document.writeln("					<p>MC<sup>2</sup></p>");
+document.writeln("					<p><a href='/vue81html/index.html'>MC<sup>2</sup></a></p>");
 document.writeln("				</div>");
 document.writeln("				<nav>");
 document.writeln("					<div class=\'header_list\'>");
