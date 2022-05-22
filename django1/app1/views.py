@@ -24,54 +24,15 @@ def api(request):
         if http_x_hub_signature:
             repo_name = repo_data.get('name', '')
             sha_name, signature = http_x_hub_signature.split('=')
-            if "MC-2" == str(repo_name) and "6e79fdec49423438ad223ceac8162b5e35ccbcbd" == signature: # and http_x_github_event == 'push':
+            print(signature)
+            print(repo_name)
+            print(http_x_github_event)
+            if "MC-2" == str(repo_name) and http_x_github_event == 'push':
                 print("push webhook start")
-                print(sender_data)
                 # Do your webhook job
                 # such as restarting a docker container.
                 os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
                 return HttpResponse('push webhook done!')
-        # except:
-        #     print("POST webhook error")
-        # if repo_data and sender_data and http_x_hub_signature:
-        #     user_id = sender_data.get('id', '')
-        #     user_name = sender_data.get('login', '')
-        #     repo_name = repo_data.get('name', '')
-        #     repo_id = repo_data.get('id', '')
-        #     repo_ssh_url = repo_data.get('ssh_url', '')
-        #     sha_name, signature = http_x_hub_signature.split('=')
-        #     if sha_name != 'sha1':
-        #         return HttpResponse('HeHe!')
-        #     webhook = Github_Webhook.objects.filter(
-        #         repo_name=repo_name,
-        #         repo_ssh_url=repo_ssh_url
-        #     ).first()
-        #     if webhook:
-        #         # HMAC requires the key to be bytes, but data is string
-        #         mac = hmac.new(str(webhook.secret), msg=request.body, digestmod=sha1)
-        #         # Python prior to 2.7.7 does not have hmac.compare_digest
-        #         if hexversion >= 0x020707F0:
-        #             if not hmac.compare_digest(str(mac.hexdigest()), str(signature)):
-        #                 return HttpResponseForbidden('HeHe!')
-        #         else:
-        #             # What compare_digest provides is protection against timing
-        #             # attacks; we can live without this protection for a web-based
-        #             # application
-        #             if not str(mac.hexdigest()) == str(signature):
-        #                 return HttpResponseForbidden('HeHe!')
-        #         if webhook.repo_id == -1 and http_x_github_event == 'ping':
-        #             # Save this webhook
-        #             webhook.repo_id = int(repo_id)
-        #             webhook.save()
-        #             content = u'Save github webhook: [%s] by user %s, %s' % (
-        #                 webhook, user_id, user_name)
-        #             write_log(content)
-        #             return HttpResponse('Webhook saved!')
-        #         if webhook.repo_id == int(repo_id) and http_x_github_event == 'push':
-        #             # Do your webhook job
-        #             # such as restarting a docker container.
-        #             print("push webhook start")
-        #             return HttpResponse('push webhook done!')
     ## webhook done
     every_page_num = 10 #每页条目
     recv = request.GET.dict()
