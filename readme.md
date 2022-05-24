@@ -1,6 +1,6 @@
 # IRC-Website4.0 : django版&git+docker部署
 [IRC计算架构标准化方案](https://j1gkjgppjx.feishu.cn/docs/doccnjgyQDdhwphXpcSsWYi6Grh)
-![框图](img/framework.svg)
+![框图](img/framework.jpg)
 
 # 0.gitpod
 [Gitpod.io](https://www.gitpod.io) 是一个免费的在线开发环境，你也可以使用它参与本项目，方便快速编辑和提交。
