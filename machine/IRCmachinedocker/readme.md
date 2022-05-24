@@ -43,5 +43,6 @@ sshpass -p ywzbuaamc2 ssh -o StrictHostKeyChecking=no ywz@10.134.162.xxx -p 22  
 # cmd为github端action配置(或配置到vps端等任何一个机器-注意信息安全,不能直接push到仓库)
 cmd = 'sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  "sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  \"{}\""'.format(jump_passwd, jump_user, jump_ip, jump_port, machine_passwd, machine_user, machine_ip, machine_port, exec_cmd)
 
-# exec_cmd = "cd xx && git fetch --all && docker restart container_name_xx"
+# exec_cmd是写死在github端的，尽量简单 eg:"python xx.py"或"sh xx.sh" #相当于在machine机器上执行此命令
+# 将真正脚本再次封装成单独文件，eg:"os.system('xxxx')" 或 "cd xx && git fetch --all && docker restart container_name_xx"
 ```
