@@ -1,15 +1,48 @@
 #脚本工具百宝箱
 $$以markdown方式，方便修改提MR到github$$
+
+##0.机器说明
+*实时资源看板、IP和端口(默认22)均直接运维在内部网站首页，通过p2pinfo.py直接展示，此处仅展示不敏感的冗余公开信息*
+|机器代号|其他硬盘挂载路径|备注状态|NFS映射信息|
+|------|------|------|------|
+|509|/temp_disk2<br>/temp_disk3||
+|2080|/temp_disk2||
+|401|/temp_disk2||
+|207|/temp_disk2<br>/temp_disk3||
+|30901|/temp_disk2||
+|30902|/temp_disk2||
+|220|/media/|新建需联系admin||
+|ali4k||新建需联系admin||
+|ali8k||新建需联系admin||
+
+
+
 ##1.重点内容
 使用方式根据名称按ctrl+f搜索本文档内容
-|名称|功能|备注|
-|------|------|------|
-|docker使用|||
-|校内linux免装v2ray临时/永久配置流量代理|||
-||||
+|名称|备注|
+|------|------|
+|创建账号||
+|docker使用|部署个人Docker文档说明(IRC炼丹专用)|
+|校内linux免装v2ray临时/永久配置流量代理||
+|命令行认证校园网||
+|监控显卡、空闲后邮件通知<br>任意命令结束邮件通知|显卡空闲邮件通知/命令结束提醒|
+
+##2.重点说明
+- 机器数据盘隔离&开机挂载脚本
+保证数据安全，尽量全部用机械硬盘而非系统盘，而多块硬盘的挂载命令单独放进脚本，方便重启时一键执行。
+```
+#开机需执行
+sudo sh /mount.sh #内容参考下表"额外机械硬盘配置需求/使用"
+#将机械挂载到 /temp_disk2 /temp_disk3 ...
+# 如果安装了docker并将docker的目录放到了机械硬盘上，则需要挂载后重启docker(docker restart和docker.sock赋权[见下条]也需要放进/mount.sh)
+```
+- 账号无docker权限问题
+不要暴力赋权，参考“docker使用”节文档，采用对docker.sock文件刷权限(可放进/mount.sh)
+`sudo chmod a+rw /var/run/docker.sock #恢复则刷660`
 
 
-##2.所有集合
+
+##3.所有集合
 |功能|备注|链接||
 |------|------|------|------|
 |玩转跳板机|vscode/shell/mobaxterm|https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E7%8E%A9%E8%BD%AC%E8%B7%B3%E6%9D%BF%E6%9C%BA||
@@ -36,7 +69,7 @@ $$以markdown方式，方便修改提MR到github$$
 |python动态传参封装-代码参考|有别于每次修改conf文件/设定冗长的parser引入/sys.argv[]严格顺序，改用默认字典自动传参引入，见代码|https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E5%B0%81%E8%A3%85%E5%BC%8F%E5%8A%A8%E6%80%81%E4%BC%A0%E5%8F%82||
 |显示本地真实路径|pwd -P|<img src=img/25.png width=200>||
 |查看sudo权限使用记录|cat /var/log/auth.log|||
-|docker使用|改造进行中，文档已齐全，大家可以随时构建自己的镜像|https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/mydocker||
+|docker使用|改造完成，文档已齐全，可随时构建自己的镜像|https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/mydocker||
 |nfs配置使用|1server对multiclients|https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/nfs%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE||
 |显卡占用情况集中看板-docker|一台校内机器运行即可，注意首次连接sshgenkey|https://github.com/Archer-Tatsu/MC-2/tree/master/machine/IRCmachinedocker||
 |测速|iperf3|https://github.com/ywz978020607/History/blob/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/nfs%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/ip%E6%B5%8B%E9%80%9F.md||
