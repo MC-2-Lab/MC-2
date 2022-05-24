@@ -48,5 +48,9 @@ exec_cmd = "sh /github_action.sh" # exec_cmd是写死在github端/vps端的，�
 # cmd为github端action配置(或配置到vps端等任何一个机器-注意信息安全,不能直接push到仓库)
 cmd = 'sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  "sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  \"echo {} | sudo -S {}\""'.format(jump_passwd, jump_user, jump_ip, jump_port, machine_passwd, machine_user, machine_ip, machine_port, machine_passwd, exec_cmd)
 
-# 将真正脚本再次封装成单独文件放在machine机器，eg:/github_action.sh:"cd xx && git fetch --all && docker restart container_name_xx"
+# 将真正脚本再次封装成单独文件放在machine机器，eg:/github_action.sh:"cd xx && git fetch --all && git reset --hard origin/master && git pull origin master -f && docker restart container_name_xx"
+
+# 强制更新拉取两种方式
+git pull --force; git checkout master
+git fetch --all && git reset --hard origin/master && git pull origin master -f #第三步也可以不用
 ```
