@@ -150,7 +150,7 @@ if __name__ == "__main__":
                 print(server + " can not connect.")
             time.sleep(1)
         try:
-            p = os.popen('timeout 30s sshpass -p \"{}\" scp /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
+            p = os.popen('timeout 30s sshpass -p \"{}\" scp  -o StrictHostKeyChecking=no /src/*.txt {}@{}:{}'.format(passwd,user,remote_ip,remote_location))
             print("remote vps transport ok")
         except:
             print("remote vps transport fail")
