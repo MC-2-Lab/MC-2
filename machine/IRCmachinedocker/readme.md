@@ -38,11 +38,15 @@ all_external.html为vps端进行公网看板信息的网址
 命令示例:
 ```
 #测试
-sshpass -p ywzbuaamc2 ssh -o StrictHostKeyChecking=no ywz@10.134.162.xxx -p 22  "sshpass -p ywzbuaamc2 ssh -o StrictHostKeyChecking=no ywz@10.134.162.xxx -p 22  \"ls\""
+sshpass -p ywzpasswd ssh -o StrictHostKeyChecking=no ywz@10.134.162.xxx -p 22  "sshpass -p ywzpasswd ssh -o StrictHostKeyChecking=no ywz@10.134.162.xxx -p 22  \"echo ywzpasswd | sudo -S ls\""
+
+#vps端配置(或github仓库配置secret)
+jump_user, jump_ip, jump_port, jump_passwd = ["", "", "", ""]
+machine_user, machine_ip, machine_port, machine_passwd = ["", "", "", ""]
+exec_cmd = "sh /github_action.sh" # exec_cmd是写死在github端/vps端的，尽量简单 eg:"sh xx.sh" #相当于在machine机器上执行此命令
 
 # cmd为github端action配置(或配置到vps端等任何一个机器-注意信息安全,不能直接push到仓库)
-cmd = 'sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  "sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  \"{}\""'.format(jump_passwd, jump_user, jump_ip, jump_port, machine_passwd, machine_user, machine_ip, machine_port, exec_cmd)
+cmd = 'sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  "sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  \"echo {} | sudo -S {}\""'.format(jump_passwd, jump_user, jump_ip, jump_port, machine_passwd, machine_user, machine_ip, machine_port, machine_passwd, exec_cmd)
 
-# exec_cmd是写死在github端的，尽量简单 eg:"python xx.py"或"sh xx.sh" #相当于在machine机器上执行此命令
-# 将真正脚本再次封装成单独文件，eg:"os.system('xxxx')" 或 "cd xx && git fetch --all && docker restart container_name_xx"
+# 将真正脚本再次封装成单独文件放在machine机器，eg:/github_action.sh:"cd xx && git fetch --all && docker restart container_name_xx"
 ```
