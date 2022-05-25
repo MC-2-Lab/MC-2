@@ -1,0 +1,13 @@
+name: deploy_ssh
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: sshpass jump to machine ssh
+        run: sshpass -p ${{secrets.JUMP_PASSWORD}} ssh -o StrictHostKeyChecking=no ${{secrets.JUMP_USER}}@${{secrets.JUMP_IP}} -p ${{secrets.JUMP_PORT}}  "sshpass -p ${{secrets.MACHINE_PASSWORD}} ssh -o StrictHostKeyChecking=no ywz@$10.134.162.162 -p 22  \"echo ${{secrets.MACHINE_PASSWORD}} | sudo -S ls && ls\""
