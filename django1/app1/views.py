@@ -14,25 +14,27 @@ from app1.AES import aesDecrypt, aesEncrypt
 def api(request):
     ##github webhook
     if request.method == 'POST' and request.body:
-        # try:
-        http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
-        http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '') #sha1=6e79fdec49423438ad223ceac8162b5e35ccbcbd
-        json_data = json.loads(request.body)
-        print(json_data)
-        repo_data = json_data.get('repository', '') #{"name": "MC-2",...}
-        sender_data = json_data.get('sender', '')#{"login":"ywz9",...}
-        if http_x_hub_signature:
-            repo_name = repo_data.get('name', '')
-            sha_name, signature = http_x_hub_signature.split('=')
-            print(signature)
-            print(repo_name)
-            print(http_x_github_event)
-            if "MC-2" == str(repo_name) and http_x_github_event == 'push':
-                print("push webhook start")
-                # Do your webhook job
-                # such as restarting a docker container.
-                os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
-                return HttpResponse('push webhook done!')
+        try:
+            http_x_github_event = request.META.get('HTTP_X_GITHUB_EVENT', '')
+            http_x_hub_signature = request.META.get('HTTP_X_HUB_SIGNATURE', '') #sha1=6e79fdec49423438ad223ceac8162b5e35ccbcbd
+            json_data = json.loads(request.body)
+            print(json_data)
+            repo_data = json_data.get('repository', '') #{"name": "MC-2",...}
+            sender_data = json_data.get('sender', '')#{"login":"ywz9",...}
+            if http_x_hub_signature:
+                repo_name = repo_data.get('name', '')
+                sha_name, signature = http_x_hub_signature.split('=')
+                print(signature)
+                print(repo_name)
+                print(http_x_github_event)
+                if "MC-2" == str(repo_name) and http_x_github_event == 'push':
+                    print("push webhook start")
+                    # Do your webhook job
+                    # such as restarting a docker container.
+                    os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
+                    return HttpResponse('push webhook done!')
+        except:
+            print("webhook error")
     ## webhook done
     every_page_num = 10 #每页条目
     recv = request.GET.dict()
