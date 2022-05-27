@@ -1,16 +1,14 @@
 version: '3'
 services:
   gitlab:
-    # build: .
     image: gitlab/gitlab-ce
     container_name: gitlab
-    hostname: "10.134.162.162"
+    hostname: "buaamc2.net"
     ports:
       - "8081:80"
       - "443:443"
       - "222:22"
     volumes:
-      # - config/gitlab.rb:/etc/gitlab/gitlab.rb
       - ./config:/etc/gitlab
       - ./logs:/var/log/gitlab
       - ./data:/var/opt/gitlab
