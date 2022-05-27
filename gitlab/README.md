@@ -28,15 +28,3 @@ docker run \
  --name gitlab \
  gitlab/gitlab-ce
 ```
-
-```
-docker run -d \
--p 443:443 -p 8081:80 -p 222:22 \
---name gitlab \
---restart unless-stopped \
--v /opt/gitlab/config:/etc/gitlab \
--v /opt/gitlab/logs:/var/log/gitlab \
--v /opt/gitlab/data:/var/opt/gitlab \
--v /etc/localtime:/etc/localtime \
-gitlab/gitlab-ce
-```

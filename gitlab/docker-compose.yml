@@ -4,7 +4,7 @@ services:
     # build: .
     image: gitlab/gitlab-ce
     container_name: gitlab
-    host: buaamc2.net
+    # hostname: "buaamc2.net"
     ports:
       - "8081:80"
       - "443:443"
