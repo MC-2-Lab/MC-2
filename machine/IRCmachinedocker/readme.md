@@ -26,8 +26,11 @@ cat machine.log
 ```
 code/文件夹下为
 校内看板跳转机对应代码：
-get_user_remote.py 主要程序(docker内执行)
-p2pinfo.py为全仓库唯一ip实时更新文件，目的用于：内网查看ip信息；校内看板跳转机逐机器进行CPU/GPU资源查询。
+get_user_remote.py 主要程序(docker内在code目录上一级执行)
+config为全仓库唯一ip实时更新文件，目的用于：内网查看ip信息；校内看板跳转机逐机器进行CPU/GPU资源查询以及维修状态等通过注释添加。
+如需替换可wget后使用sed命令
+wget https://raw.githubusercontent.com/Archer-Tatsu/MC-2/master/machine/IRCmachinedocker/code/config
+sed -i s@/ywz/@/your_user_name/@g config
 
 vps远程端代码：
 all_external.html为vps端进行公网看板信息的网址
