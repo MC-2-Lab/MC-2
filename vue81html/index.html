@@ -223,21 +223,25 @@
                     <div id="right-row" class="row" v-if="seen[1]">
                         <div style="font-size:20px">
                             <br>
+                            <h2>BUAAMC2-Gitlab</h2>
+                            ssh -L 8081:10.134.162.162:8081 jump1<br>
+                            jump1为跳板机 如在校内可不输入<br>
                             <h2 style="color: blue;">花生壳内网穿透</h2>
                             <br> 传大文件请用北航云盘或腾讯COS盘等直链静态文件服务器或校内互传
                             <br> 推荐专用花生壳设备隧道
-                            <br> (如果没有跳板机对应服务器账号，可以使用首页-公共账号)
+                            <br> (如果没有跳板机对应服务器账号，可以使用首页-公共账号，本页跳板机信息已同步到首页-config文件中)
                             <br> 跳板机1：30901-[467830y6j3.zicp.vip:57009]
 <!--                             <button @click="get_decode('vm+cbyoqiqUjD8JYe9/PJQug/J0DwF2Qg+/9I/y+hhVCt9RQwFUB4CG6ruToVvtQ')">点击解密</button> -->
                             <br> 跳板机2：30902-[467830y6j3.zicp.vip:32027]
 <!--                             <button @click="get_decode('v87QqHbgnH5e/t8m+ZUUH5JOkgruhWkVoXGrvWhCymhCt9RQwFUB4CG6ruToVvtQ')">点击解密</button> -->
-                            <br><div style="color: red;">{{resdata}}</div>
+<!--                             <br><div style="color: red;">{{resdata}}</div> -->
                             <br> 
                             <br> 其他服务器可以登陆后再进行ssh跳转 <br>
                             <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E7%8E%A9%E8%BD%AC%E8%B7%B3%E6%9D%BF%E6%9C%BA" style="color: red;">用法可参考玩转跳板机页面-支持脚本&vscode&mobaxterm等多种方式，点此查看</a>
                             <br><br><br>
                             <h2>非22端口穿透查看/TensorboardX面板远程查看也请查看上文</h2>
-                            <br><br><br>
+                            <br>
+                            <br><br>
                             <a href="https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/ssh%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95-%E5%8F%8C%E5%90%91%E4%BB%A3%E7%90%86">点此查看ssh命令其他用法详细说明</a>
                             <br><br><br>
                             <!-- 其他服务器如果有需求，请联系杨文哲.<br> -->
