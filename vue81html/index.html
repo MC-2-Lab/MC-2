@@ -208,16 +208,14 @@
                             <a href="http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html">点击跳转查看集群看板信息(实时GPU/CPU)</a>
                             <br><br>
                             <br>
-                            服务器公用账号<br>
-                            账号: ywz<br>
-                            密码:{{resdata}} <button @click="get_decode('QaXXH8skJElPCFRti/n7Qg==')">点击解密</button><br>
+                            服务器公用账号及相应config配置, 如下表所示<br>
+                            统一密码:{{resdata}} <button @click="get_decode('QaXXH8skJElPCFRti/n7Qg==')">点击解密</button><br>
                             <a href="javascript:void(0);" @click="loadp2p">查看最新ip及端口(默认22) 点击刷新查询</a><br>
                             <textarea  id="p2pinfo"  cols="50" rows="30" style="text-align:center;" readonly></textarea >
                             <br>
-                            <a href="https://github.com/Archer-Tatsu/MC-2/blob/master/machine/IRCmachinedocker/code/p2pinfo.py">如需修改以上信息，请点此跳转到仓库提交MR</a><br>
+                            <a href="https://github.com/Archer-Tatsu/MC-2/blob/master/machine/IRCmachinedocker/code/config">如ip变动等需修改以上信息，请点此跳转到仓库直接修改并提交MR</a><br>
                             <br><br><br>
-                            以上仅显示IP端口和账号密码等信息<br>
-                            对于机器状态、备注等信息，统一运维在<a href="https://github.com/Archer-Tatsu/MC-2/blob/master/vue81html/collection.md">百宝箱页面，请点击查看修改</a><br>
+                            以上为.ssh/config配置文件, 如需拉取更新, 可直接wget下放链接并使用sed命令替换账号<br>
                             <br>
                         </div>
                     </div>
@@ -398,7 +396,7 @@
                     <!-- alert(hour); -->
                 },
                 loadp2p(){
-                    $("#p2pinfo").load('../machine/IRCmachinedocker/code/p2pinfo.py');
+                    $("#p2pinfo").load('../machine/IRCmachinedocker/code/config');
                 },
                 
                 get_encode(){
@@ -434,7 +432,7 @@
 
             },
             mounted() {
-                $("#p2pinfo").load('../machine/IRCmachinedocker/code/p2pinfo.py');
+                $("#p2pinfo").load('../machine/IRCmachinedocker/code/config');
                 this.hello();
             }
         }
