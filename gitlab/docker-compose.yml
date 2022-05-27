@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nginx:
+  gitlab:
     image: gitlab/gitlab-ce
     container_name: gitlab
     ports:
