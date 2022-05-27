@@ -51,7 +51,7 @@ sudo sh /mount.sh #内容参考下表"额外机械硬盘配置需求/使用"
 |linux运维常用命令|<img src=img/5.png width=200>|https://github.com/ywz978020607/History/blob/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E5%B8%B8%E7%94%A8linux%E8%84%9A%E6%9C%AC.md||
 |服务器集群显卡用户占用情况||https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%A8%E6%88%B7%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5||
 |显卡驱动卸载与重装|https://cn.download.nvidia.cn/XFree86/Linux-x86_64/510.60.02/NVIDIA-Linux-x86_64-510.60.02.run|https://github.com/ywz978020607/History/blob/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/ubuntu18.04%E6%96%B0%E6%9C%BA%E9%85%8Dcuda%E9%A9%B1%E5%8A%A8.md||
-|linux-下载北航云盘文件方法||https://github.com/ywz978020607/History/blob/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/bhpan.py||
+|linux-上传/下载北航云盘文件方法||https://github.com/ywz978020607/History/blob/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/bhpan.py<br>更好方法：https://github.com/xdedss/dist_bhpan||
 |win-wsl配置||https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/WSL%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE||
 |创建账号|`sudo adduser lep`<br>赋权成为管理员:<br>sudo usermod -a -G adm lep<br>sudo usermod -a -G sudo lep|
 |认证校园网|cd /home/ywz/data/pySrun4k_BeihangLogin-master<br>python Login.py login 学号 密码|https://github.com/ywz978020607/History/tree/master/cv%E7%A0%94%E7%A9%B6%E7%94%9F%E6%97%A5%E5%B8%B8Lab/pySrun4k_BeihangLogin-master|||
