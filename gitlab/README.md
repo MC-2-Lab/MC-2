@@ -7,7 +7,7 @@
 docker-compose up -d
 #修改url
 # gitlab.rb文件内容默认全是注释
-$ vim /root/gitlab/config/gitlab.rb #更新在了config/gitlab.rb
+$ vim /root/gitlab/config/gitlab.rb
 # 配置http协议所使用的访问地址,不加端口号默认为80
 
 external_url 'http://buaamc2.net:8081'
