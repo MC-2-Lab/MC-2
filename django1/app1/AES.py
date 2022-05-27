@@ -53,6 +53,6 @@ if __name__ == '__main__':
     print(type(ecdata))
     aesDecrypt(key, ecdata)
     # import hashlib
-    # data = '9z0HO8dlBPG8uXub/qBnDw=='
+    # data = 'xxxx'
     # code = hashlib.md5(data.encode(encoding='UTF-8')).hexdigest()
     # print(code)
