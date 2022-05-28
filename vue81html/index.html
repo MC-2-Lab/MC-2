@@ -223,16 +223,10 @@
                     <div id="right-row" class="row" v-if="seen[1]">
                         <div style="font-size:20px">
                             <br>
-                            <h2><a href="http://127.0.0.1:8081">BUAAMC2-Gitlab</a></h2>
-                            需本机先输入下条命令 将gitlab涉及端口转发到本机，以本机ip配置迁移时不需更改， 兼容win/mac/linux<br>
-                            【校外】<br>
-                            ssh -L 8081:10.134.162.162:8081 jump1<br>
-                            ssh -L 8022:10.134.162.162:8022 jump1<br>
-                            【校内】<br>
-                            ssh -L 8081:10.134.162.162:8081 207<br>
-                            ssh -L 8022:10.134.162.162:8022 207<br>
-                            其中jump1、207为ssh配置(见首页config文件)<br>
+                            <h2><a href="http://buaamc2.net:8081">BUAAMC2-Gitlab[新注册需管理员审核]</a></h2>
+                            默认内网穿透+vps转发，如果觉得速度太慢，请参考下面说明中改用自己代理到本机的方式以加速<br>
                             <a href="https://github.com/Archer-Tatsu/MC-2/blob/master/gitlab/user.md">Gitlab 快速接入配置</a><br>
+                            管理员账号： 账号 root  密码 {{resdata}} <button @click="get_decode('6HaSd4xNXPaWPmHVqkogcw==')">点击解密</button><br>
                             <br><br><br>
                             <h2 style="color: blue;">花生壳内网穿透</h2>
                             <br> 传大文件请用北航云盘或腾讯COS盘等直链静态文件服务器或校内互传
