@@ -51,3 +51,18 @@ services:
     ports:
       - "8022:8022"
     restart: always
+  
+  forwardv2ray:
+    build: .
+    image: backend_common_image
+    container_name: forwardv2ray
+    tty: True
+    environment:
+      - gitlabip=${gitlabip}
+      - passwd=${passwd}
+      - openip=${openip}
+      - openport=${openport}
+    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:47042:${gitlabip}:47042 ywz@${openip} -p ${openport}
+    ports:
+      - "47042:47042"
+    restart: always
