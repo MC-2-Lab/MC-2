@@ -13,6 +13,7 @@ services:
       - web
   web:
     build: .
+    image: backend_common_image
     container_name: djangoIRC
     command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
     volumes:
@@ -22,8 +23,9 @@ services:
     restart: always
   
   forward8081:
-    container_name: forward8081
     build: .
+    image: backend_common_image
+    container_name: forward8081
     environment:
       - gitlabip=${gitlabip}
       - passwd=${passwd}
@@ -35,8 +37,9 @@ services:
     restart: always
   
   forward8022:
-    container_name: forward8022
     build: .
+    image: backend_common_image
+    container_name: forward8022
     environment:
       - gitlabip=${gitlabip}
       - passwd=${passwd}
