@@ -19,7 +19,8 @@ services:
       - passwd=${passwd}
       - openip=${openip}
       - openport=${openport}
-    command: bash ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
+    command: #bash ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
+      - "bash ./dev_start.sh"
     volumes:
       - ..:/src
     expose:
