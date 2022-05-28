@@ -14,11 +14,26 @@ services:
   web:
     build: .
     container_name: djangoIRC
+    environment:
     command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
     volumes:
       - ..:/src
     expose:
       - "8000"
     restart: always
-    # links:
-    #   - nginx
+  
+  forward:
+    container_name: forward
+    build: .
+    environment:
+      - gitlabip=${gitlabip}
+      - passwd=${passwd}
+      - openip=${openip}
+      - openport=${openport}
+    command: ./docker/forward/dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
+    volumes:
+      - ..:/src
+    ports:
+      - "8081:8081"
+      - "8022:8022"
+    restart: always
