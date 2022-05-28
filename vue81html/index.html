@@ -224,8 +224,10 @@
                         <div style="font-size:20px">
                             <br>
                             <h2><a href="http://127.0.0.1:8081">BUAAMC2-Gitlab</a></h2>
-                            需本机先输入ssh -L 8081:10.134.162.162:8081 jump1<br>
-                            jump1为跳板机 如在校内可不输入<br>
+                            需本机先输入下条命令 兼容win/mac/linux<br>
+                            ssh -L 8081:10.134.162.162:8081 222:10.134.162.162:222 443:10.134.162.162:443  jump1<br>
+                            jump1为ssh config跳板机配置(见首页config文件) 如在校内可不输入<br>
+                            <br>
                             <h2 style="color: blue;">花生壳内网穿透</h2>
                             <br> 传大文件请用北航云盘或腾讯COS盘等直链静态文件服务器或校内互传
                             <br> 推荐专用花生壳设备隧道
