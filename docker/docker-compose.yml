@@ -20,8 +20,8 @@ services:
       - openip=${openip}
       - openport=${openport}
     command: #bash ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
-      - "./dev_start.sh"
       - "sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8081:${gitlabip}:8081 ywz@${openip} -p ${openport}"
+      - "./dev_start.sh"
       - "sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8022:${gitlabip}:8022 ywz@${openip} -p ${openport}"
     volumes:
       - ..:/src
