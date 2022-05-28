@@ -26,6 +26,7 @@ services:
     build: .
     image: backend_common_image
     container_name: forward8081
+    tty: True
     environment:
       - gitlabip=${gitlabip}
       - passwd=${passwd}
@@ -34,12 +35,13 @@ services:
     command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8081:${gitlabip}:8081 ywz@${openip} -p ${openport}
     ports:
       - "8081:8081"
-    restart: on-failure
+    restart: always
   
   forward8022:
     build: .
     image: backend_common_image
     container_name: forward8022
+    tty: True
     environment:
       - gitlabip=${gitlabip}
       - passwd=${passwd}
@@ -48,4 +50,4 @@ services:
     command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8022:${gitlabip}:8022 ywz@${openip} -p ${openport}
     ports:
       - "8022:8022"
-    restart: on-failure
+    restart: always
