@@ -14,7 +14,6 @@ services:
   web:
     build: .
     container_name: djangoIRC
-    environment:
     command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
     volumes:
       - ..:/src
