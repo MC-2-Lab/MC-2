@@ -14,37 +14,35 @@ services:
   web:
     build: .
     container_name: djangoIRC
+    command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
+    volumes:
+      - ..:/src
+    expose:
+      - "8000"
+    restart: always
+  
+  forward8081:
+    container_name: forward8081
+    build: .
     environment:
       - gitlabip=${gitlabip}
       - passwd=${passwd}
       - openip=${openip}
       - openport=${openport}
-    command: #bash ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
-      - "sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8081:${gitlabip}:8081 ywz@${openip} -p ${openport}"
-      - "./dev_start.sh"
-      - "sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8022:${gitlabip}:8022 ywz@${openip} -p ${openport}"
-    volumes:
-      - ..:/src
-    expose:
-      - "8000"
+    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8081:${gitlabip}:8081 ywz@${openip} -p ${openport}
     ports:
       - "8081:8081"
-      - "8022:8022"
-      - "8082:8082"
-    restart: on-failure
+    restart: always
   
-  # forward:
-  #   container_name: forward
-  #   build: .
-  #   environment:
-  #     - gitlabip=${gitlabip}
-  #     - passwd=${passwd}
-  #     - openip=${openip}
-  #     - openport=${openport}
-  #   command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
-  #   volumes:
-  #     - ..:/src
-  #   ports:
-  #     - "8081:8081"
-  #     - "8022:8022"
-  #   restart: always
+  forward8022:
+    container_name: forward8022
+    build: .
+    environment:
+      - gitlabip=${gitlabip}
+      - passwd=${passwd}
+      - openip=${openip}
+      - openport=${openport}
+    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8022:${gitlabip}:8022 ywz@${openip} -p ${openport}
+    ports:
+      - "8022:8022"
+    restart: always
