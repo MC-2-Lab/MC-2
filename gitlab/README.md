@@ -10,10 +10,10 @@ docker-compose up -d
 $ vim /root/gitlab/config/gitlab.rb
 # 配置http协议所使用的访问地址,不加端口号默认为80
 
-external_url 'http://buaamc2.net:8081'  #修改后注意外面的docker-compose要改成8081:8081 不然打不开
+external_url 'http://buaamc2.net:8081'  #修改后注意外面的docker-compose要改成8081:8081 不然打不开 #如果是校内机器，buaamc2.net换成127.0.0.1
 # 配置ssh协议所使用的访问地址和端口
-gitlab_rails['gitlab_ssh_host'] = 'buaamc2.net'
-gitlab_rails['gitlab_shell_ssh_port'] = 222 # 此端口是run时22端口映射的222端口
+gitlab_rails['gitlab_ssh_host'] = 'buaamc2.net' #如果是校内机器，buaamc2.net换成127.0.0.1
+gitlab_rails['gitlab_shell_ssh_port'] = 8022 # 此端口是run时22端口映射的端口
 #保存配置文件并退出
 docker restart gitlab
 ```
@@ -23,7 +23,7 @@ docker restart gitlab
 docker run \
  -itd  \
  -h gitlab.buaamc2.net\
- -p 222:22 \
+ -p 8022:22 \
  -p 8081:80 \
  -v /usr/local/gitlab/etc:/etc/gitlab  \
  -v /usr/local/gitlab/log:/var/log/gitlab \
