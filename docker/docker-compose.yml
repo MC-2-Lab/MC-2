@@ -19,7 +19,8 @@ services:
       - passwd=${passwd}
       - openip=${openip}
       - openport=${openport}
-    command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
+    command: docker exec -d service_name /bin/bash -c '/opt/start.sh'
+    # command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
     volumes:
       - ..:/src
     expose:
@@ -28,7 +29,7 @@ services:
       - "8081:8081"
       - "8022:8022"
       - "8082:8082"
-    restart: always
+    restart: on-failure
   
   # forward:
   #   container_name: forward
