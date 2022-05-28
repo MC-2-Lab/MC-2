@@ -27,6 +27,7 @@ services:
     ports:
       - "8081:8081"
       - "8022:8022"
+      - "8082:8082"
     restart: always
   
   # forward:
