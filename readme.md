@@ -75,3 +75,11 @@ start
 最终效果  
 http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html
 
+# gitlab+forward
+vps端启动docker时
+```
+cd docer/
+. env.sh gitlabip passwd jump_ip jump_port #顺序输入
+docker-compose up -d
+```
+如何配置及使用等信息见gitlab文件夹

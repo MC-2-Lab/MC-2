@@ -6,7 +6,7 @@
 #对系统ssh增加配置（.ssh/config）
 # gitlab
 Host gitlab.com
-  HostName 127.0.0.1
+  HostName buaamc2.net #如果自己进行端口转发则换127.0.0.1
   Port 8022
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_rsa.gitlab #可以直接拷贝github/gitee的一对密钥并改名
