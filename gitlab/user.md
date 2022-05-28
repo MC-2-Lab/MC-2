@@ -1,4 +1,6 @@
 # gilab访问及配置概览
+## 官方在线版本[gitlab.com](http://gitlab.com)
+
 ## 内网最新ip: 10.134.162.162
 以下三种方式殊途同归，可根据自身特点进行选择
 | 方式      | 特点 | 对应网页端 | ssh端 | 
@@ -13,19 +15,19 @@
 在原有github/gitee仓库基础上，执行以下步骤  
 ```
 #对系统ssh增加配置（.ssh/config）
-# gitlab
-Host gitlab.com
+# mygitlab.com 替换链接中buaamc2.net:8022
+Host mygitlab.com
   HostName buaamc2.net #如果自己进行端口转发则换127.0.0.1
   Port 8022
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_rsa.gitlab #可以直接拷贝github/gitee的一对密钥并改名
   # ProxyCommand connect -S 127.0.0.1:10808 -a none %h %p #win-dns解析失败时设置走socks代理
 ##
-测试 ssh -T git@gitlab.com
+测试 ssh -T git@mygitlab.com
 
 #对原仓库路径下.git/config增加一条配置(.git默认隐藏)
 [remote "gitlab"]
-url = ssh://git@gitlab.com/yangwenzhe/mybackup.git #替换成对应的ssh链接, 但127.0.0.1用gitlab.com代替, 以链接到对应的密钥
+url = ssh://git@mygitlab.com/yangwenzhe/mybackup.git #替换成对应的ssh链接, 但127.0.0.1用mygitlab.com代替, 以链接到对应的密钥
 fetch = +refs/heads/*:refs/remotes/origin/*
 ##
 
