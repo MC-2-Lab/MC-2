@@ -1,6 +1,6 @@
 # gilab访问及配置概览
 ## 官方在线版本[gitlab.com](http://gitlab.com)
-
+ 配置与下方类似，端口可省略不填
 ## 内网最新ip: 10.134.162.162
 以下三种方式殊途同归，可根据自身特点进行选择
 | 方式      | 特点 | 对应网页端 | ssh端 | 
@@ -26,13 +26,13 @@ Host mygitlab.com
 测试 ssh -T git@mygitlab.com
 
 #对原仓库路径下.git/config增加一条配置(.git默认隐藏)
-[remote "gitlab"]
+[remote "mygitlab"]
 url = ssh://git@mygitlab.com/yangwenzhe/mybackup.git #替换成对应的ssh链接, 但127.0.0.1用mygitlab.com代替, 以链接到对应的密钥
 fetch = +refs/heads/*:refs/remotes/origin/*
 ##
 
 #测试
-git push gitlab master
+git push mygitlab master
 ```
 
 默认直接走内网穿透+境外vps代理，如果觉得速度太慢，可执行：
