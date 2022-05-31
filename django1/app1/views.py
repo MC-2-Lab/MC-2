@@ -122,3 +122,7 @@ def api(request):
         return response
     return  HttpResponse("ok")
 
+def jump207(request):
+    response = HttpResponse(status=302)
+    response['Location'] = 'http://10.134.162.162/'
+    return response

@@ -21,4 +21,6 @@ from app1 import  views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.api),  # 'api/'  -> ''
+    #
+    path('/207',view.jump207), #'api/207'->'207'
 ]
