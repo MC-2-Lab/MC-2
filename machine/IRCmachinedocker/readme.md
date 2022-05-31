@@ -24,16 +24,19 @@ cat machine.log
 
 # 文件说明
 ```
-code/文件夹下为
+
 校内看板跳转机对应代码：
-get_user_remote.py 主要程序(docker内在code目录上一级执行)
-config为全仓库唯一ip实时更新文件，目的用于：内网查看ip信息；校内看板跳转机逐机器进行CPU/GPU资源查询以及维修状态等通过注释添加。
+code/get_user_remote.py 主要程序(docker内在code目录上一级执行)
+code/config为全仓库唯一ip实时更新文件，目的用于：内网查看ip信息；校内看板跳转机逐机器进行CPU/GPU资源查询以及维修状态等通过注释添加。
 如需替换可wget后使用sed命令
 wget https://raw.githubusercontent.com/Archer-Tatsu/MC-2/master/machine/IRCmachinedocker/code/config
 sed -i s@/ywz/@/your_user_name/@g config
 
 vps远程端代码：
 all_external.html为vps端进行公网看板信息的网址
+
+aliDNS更新代码:
+code/aliyun.py #IRCmachinedocker或者vps-docker都可以执行，目前已加入vps-webhook
 
 debug测试执行：  
 code内脚本需要到IRCmachinedocker下执行  
