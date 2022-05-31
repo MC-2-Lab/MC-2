@@ -113,16 +113,8 @@ def api(request):
         ret['data'] = aesEncrypt(key, context)
         return JsonResponse(ret)
 
-    ##
-    #重定向
-    elif mode=='207':
-        # return HttpResponse("10.134.162.162")
-        response = HttpResponse(status=302)
-        response['Location'] = 'http://10.134.162.162/'
-        return response
-    return  HttpResponse("ok")
 
-def jump(request, name='207'):
-    response = HttpResponse(status=302)
-    response['Location'] = 'http://10.134.162.162/'
-    return response
+# def jump(request, name='207'):
+#     response = HttpResponse(status=302)
+#     response['Location'] = 'http://10.134.162.162/'
+#     return response

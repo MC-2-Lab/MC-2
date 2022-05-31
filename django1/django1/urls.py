@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.api),  # 'api/'  -> ''
     #
-    path('jump/<str:name>/',views.jump), #'api/jump/207'->'207'
+    # path('jump/<str:name>',views.jump), #'api/jump/207'->'207'
 ]
