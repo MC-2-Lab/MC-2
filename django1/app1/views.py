@@ -113,5 +113,9 @@ def api(request):
         ret['data'] = aesEncrypt(key, context)
         return JsonResponse(ret)
 
+    ##
+    #重定向
+    elif mode=='207':
+        return HttpResponse("10.134.162.162")
     return  HttpResponse("ok")
 
