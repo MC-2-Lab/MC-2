@@ -1,5 +1,5 @@
 ```
-. env ywz passwd
+. env ywz passwd keyForAES
 
 #若第一次进入
 build
@@ -34,6 +34,12 @@ sed -i s@/ywz/@/your_user_name/@g config
 
 vps远程端代码：
 all_external.html为vps端进行公网看板信息的网址
+
+debug测试执行：  
+code内脚本需要到IRCmachinedocker下执行  
+如更新aliyunDNS
+export key='xx' #需配置好环境变量
+python3 code/aliyun.py 
 ```
 
 # github-Action触发内网机器拉取(需跳板机)
@@ -59,7 +65,7 @@ cmd = 'sshpass -p {} ssh -o StrictHostKeyChecking=no {}@{} -p {}  "sshpass -p {}
 
 # 强制更新拉取两种方式
 git pull --force; git checkout master
-git fetch --all && git reset --hard origin/master && git pull origin master -f #第三步也可以不用
+git fetch --all && git reset --hard origin/master && git pull origin master -f
 ```
 
 

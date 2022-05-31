@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # . env 10.134.162.162 xx 467830y6j3.zicp.vip 57009
-export gitlabip=$1;
+export key=$1; #加密用 实验室最常用的组会房间号
 export passwd=$2;
 export openip=$3;  #内网穿透
 export openport=$4; 

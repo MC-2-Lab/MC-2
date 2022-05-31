@@ -1,4 +1,5 @@
 django==2.2.0
 django-cors-headers
 pycryptodome==3.14.1
+aliyun-python-sdk-core-v3
 requests

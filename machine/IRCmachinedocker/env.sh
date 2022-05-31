@@ -2,6 +2,7 @@
 
 export user=$1;
 export passwd=$2;
+export key=$3;
 
 # 默认文件夹名
 project_path=$(pwd);

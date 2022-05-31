@@ -32,6 +32,7 @@ def api(request):
                     # Do your webhook job
                     # such as restarting a docker container.
                     os.system("cd /src && git fetch --all && git reset --hard origin/master && git pull origin master -f && chmod +x dev_start.sh && docker restart djangoIRC")
+                    os.system("cd /src/machine/IRCmachinedocker && python3 code/aliyun.py")
                     return HttpResponse('push webhook done!')
         except:
             print("webhook error")

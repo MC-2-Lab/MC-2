@@ -5,6 +5,7 @@ services:
     environment:
       - user=${user}
       - passwd=${passwd}
+      - key=${key}
     command: bash -c "service nginx start && python3 code/get_user_remote.py > /src/machine.log 2>&1"
     ports:
       - "82:82"
