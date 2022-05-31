@@ -33,7 +33,7 @@ wget https://raw.githubusercontent.com/Archer-Tatsu/MC-2/master/machine/IRCmachi
 sed -i s@/ywz/@/your_user_name/@g config
 
 vps远程端代码：
-all_external.html为vps端进行公网看板信息的网址
+code/all_external.html为vps端进行公网看板信息的网址
 
 aliDNS更新代码:
 code/aliyun.py #IRCmachinedocker或者vps-docker都可以执行，目前已加入vps-webhook
