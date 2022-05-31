@@ -66,3 +66,7 @@ Host jump2
   User ywz
   Port 57009
 # ==================================== #
+Host gitlab #gitlab.buaamc2.net
+  # 内网限定: gitlab部署到ip更新 和 对应内网机器一致
+  HostName 10.134.162.162
+  User ywz
