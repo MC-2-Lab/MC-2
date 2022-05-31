@@ -116,6 +116,9 @@ def api(request):
     ##
     #重定向
     elif mode=='207':
-        return HttpResponse("10.134.162.162")
+        # return HttpResponse("10.134.162.162")
+        response = HttpResponse(status=302)
+        response['Location'] = 'http://10.134.162.162/'
+        return response
     return  HttpResponse("ok")
 
