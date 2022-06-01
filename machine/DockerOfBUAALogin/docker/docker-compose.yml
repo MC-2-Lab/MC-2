@@ -14,3 +14,20 @@ services:
     # expose:
     #   - "8000"
     restart: always
+
+
+  # #内网端口转发到其他机器-适合无校内10开头ip机器
+  # #-需要被链接的机器修改/etc/ssh/sshd_config开启GatewayPorts yes后sevice ssh restart
+  # #-需要本机/etc/ssh/sshd_config取消开头Port&Address&ListenAddress注释后sevice ssh restart
+  # forward2other:
+  #   build: .
+  #   image: imgnetlogin
+  #   container_name: forward2other
+  #   tty: True
+  #   environment:
+  #     - user=${user}
+  #     - pwd=${pwd}
+  #   command: sshpass -p ${pwd} ssh -o StrictHostKeyChecking=no -R 0.0.0.0:9930(orother):127.0.0.1:22 ${user}@207(orother).buaamc2.net -p 22
+  #   ports:
+  #     - "22:22"
+  #   restart: always

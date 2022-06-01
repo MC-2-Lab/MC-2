@@ -14,6 +14,10 @@ start
 ```
 后续可以改main_login_regular.py 根据check_online返回的ip地址实现ip更新git
 
+## 更新
+docker内已加入并注释校内反向代理到其他服务器的docker，见docker-compose.yml 取消注释并按对应说明操作并启动即可
+
+
 ## 依赖
 
 requests
