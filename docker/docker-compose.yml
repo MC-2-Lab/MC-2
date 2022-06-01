@@ -52,30 +52,16 @@ services:
       - "8022:8022"
     restart: always
   
-  forwardtest:
-    build: .
-    image: backend_common_image
-    container_name: forwardtest
-    tty: True
-    environment:
-      - passwd=${passwd}
-      - openip=${openip}
-      - openport=${openport}
-    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:9207:207.buaamc2.net:47042 ywz@${openip} -p ${openport}
-    ports:
-      - "9207:9207"
-    restart: always
-  
-  forwardtest2:
-    build: .
-    image: backend_common_image
-    container_name: forwardtest2
-    tty: True
-    environment:
-      - passwd=${passwd}
-      - openip=${openip}
-      - openport=${openport}
-    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:9208:207.buaamc2.net:10808 ywz@${openip} -p ${openport}
-    ports:
-      - "9208:9208"
-    restart: always
+  # forwardtest:
+  #   build: .
+  #   image: backend_common_image
+  #   container_name: forwardtest
+  #   tty: True
+  #   environment:
+  #     - passwd=${passwd}
+  #     - openip=${openip}
+  #     - openport=${openport}
+  #   command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:9207:207.buaamc2.net:47042 ywz@${openip} -p ${openport}
+  #   ports:
+  #     - "9207:9207"
+  #   restart: always
