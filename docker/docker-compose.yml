@@ -33,7 +33,7 @@ services:
       - passwd=${passwd}
       - openip=${openip}
       - openport=${openport}
-    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8081:mygitlab.buaamc2.net:8081 ywz@${openip} -p ${openport}
+    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8081:gitlab.buaamc2.net:8081 ywz@${openip} -p ${openport}
     ports:
       - "8081:8081"
     restart: always
@@ -47,7 +47,21 @@ services:
       - passwd=${passwd}
       - openip=${openip}
       - openport=${openport}
-    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8022:mygitlab.buaamc2.net:8022 ywz@${openip} -p ${openport}
+    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:8022:gitlab.buaamc2.net:8022 ywz@${openip} -p ${openport}
     ports:
       - "8022:8022"
+    restart: always
+  
+  forwardtest:
+    build: .
+    image: backend_common_image
+    container_name: forwardtest
+    tty: True
+    environment:
+      - passwd=${passwd}
+      - openip=${openip}
+      - openport=${openport}
+    command: sshpass -p ${passwd} ssh -o StrictHostKeyChecking=no -L 0.0.0.0:9207:207.buaamc2.net:47042 ywz@${openip} -p ${openport}
+    ports:
+      - "9207:9207"
     restart: always
