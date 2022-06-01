@@ -1,0 +1,16 @@
+version: '3'
+services:
+  netlogin:
+    build: .
+    image: imgnetlogin
+    container_name: netlogin
+    command: bash -c "python main_login_regular.py > docker/netlogin.log 2>&1" #./dev_start.sh
+    environment:
+      - user=${user}
+      - pwd=${pwd}
+    volumes:
+      - ..:/src
+    tty: true
+    # expose:
+    #   - "8000"
+    restart: always
