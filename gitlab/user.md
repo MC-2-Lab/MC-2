@@ -13,7 +13,8 @@
 | vps-docker代理   | 最稳定, vps实时代理+跳板内网穿透, 但多了一层vps转发、速度最慢, 适合互相分享链接(ip不会改变) | http://buaamc2.net:8081 (稳定不变) | ssh://git@buaamc2.net:8022 |
 
 # 已有仓库使用私有化部署的gitlab
-本功能并不影响原仓库正常使用github/gitee  
+本功能并不影响原仓库正常使用github/gitee
+## 1. ssh方式连接gitlab
 首先到gitlab中新建一个仓库并添加ssh密钥  
 在原有github/gitee仓库基础上，执行以下步骤  
 ```
@@ -37,6 +38,7 @@ fetch = +refs/heads/*:refs/remotes/origin/*
 #测试
 git push mygitlab master
 ```
+## 2.http方式连接gitlab
 或者直接使用http+账号密码记忆方式简单配置  
 此种方式github等可能已经官方淘汰，但对于自搭gitlab/公司内部禁止外部机器ssh协议情景下比较实用
 ```
