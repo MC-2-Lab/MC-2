@@ -37,6 +37,18 @@ fetch = +refs/heads/*:refs/remotes/origin/*
 #测试
 git push mygitlab master
 ```
+或者直接使用http+账号密码记忆方式简单配置  
+此种方式github等可能已经官方淘汰，但对于自搭gitlab/公司内部禁止外部机器ssh协议情景下比较实用
+```
+git config (--global) credential.helper store #记忆密码
+#只对原仓库路径下.git/config增加一条配置(.git默认隐藏)
+[remote "mygitlab"]
+url = http://{ip}:{port}/yangwenzhe/mybackup.git
+fetch = +refs/heads/*:refs/remotes/origin/*
+##
+#测试
+git push mygitlab master #第一次会提示输入账号密码
+```
 
 使用buaamc2.net时默认直接走内网穿透+境外vps代理，如果觉得速度太慢，可执行：
 ```
