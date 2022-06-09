@@ -4,7 +4,7 @@ services:
     image: nginx:latest
     container_name: nginxwithupload
     ports:
-      - "81:81"
+      - "81:80"
     volumes:
       - ..:/src
       # - /var/www/html:/src/files #you can change this ori path, be consistent with next one
