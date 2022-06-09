@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nginx:
+  uploadnginx:
     image: nginx:latest
     container_name: nginxwithupload
     ports:
@@ -10,8 +10,8 @@ services:
       # - /var/www/html:/src/files #you can change this ori path, be consistent with next one
       - ./nginx:/etc/nginx/conf.d
     depends_on:
-      - web
-  web:
+      - uploadweb
+  uploadweb:
     build: .
     image: backend_upload_image
     container_name: djangoback
