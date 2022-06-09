@@ -3,4 +3,3 @@ django-cors-headers
 pycryptodome==3.14.1
 pillow==9.1.1
 requests==2.22.0
-aliyun-python-sdk-core-v3

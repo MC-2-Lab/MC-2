@@ -13,7 +13,7 @@ services:
       - web
   web:
     build: .
-    image: backend_common_image
+    image: backend_upload_image
     container_name: djangoback
     command: ./dev_start.sh #bash -c "python django1/manage.py runserver 0.0.0.0:8000 > django.log 2>&1"
     volumes:
