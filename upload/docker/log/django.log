@@ -1,0 +1,8 @@
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 07, 2022 - 13:11:50
+Django version 2.2, using settings 'django1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
