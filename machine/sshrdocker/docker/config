@@ -1,0 +1,6 @@
+Host txy
+    HostName cn.buaamc2.net
+    User sshr
+    Port 22
+    ServerAliveInterval 30
+    IdentityFile "~/.ssh/id_rsa"
