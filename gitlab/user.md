@@ -11,7 +11,7 @@
 | 校内直连      | 速度最快, 但需要在校内, 且内网ip可能会变, 适合校内其他服务器配置| http://gitlab.buaamc2.net:8081 |  ssh://git@gitlab.buaamc2.net:8022 |
 | 手动本机代理   | 最灵活, 可使用跳板/直连, 以本机ip进行配置, 适合校外访问加速(需运行端口转发命令) | http://127.0.0.1:8081 | ssh://git@127.0.0.1:8022 |
 | vps-docker代理   | 最稳定, vps实时代理+跳板内网穿透, 但多了一层vps转发、速度最慢, 适合互相分享链接(ip不会改变) | http://buaamc2.net:8081 (稳定不变) | ssh://git@buaamc2.net:8022 |
-| cn.buaamc2.net代理-最佳|最佳|http://cn.buaamc2.net:8081|http://buaamc2.net:8081 <br> gitlab可使用http进行git传输-增加记忆账号密码后仅第一次配置即可|
+| cn.buaamc2.net代理-最佳|最佳|http://cn.buaamc2.net:8081|http://cn.buaamc2.net:8081 <br> gitlab可使用http进行git传输-增加记忆账号密码后仅第一次配置即可|
 
 # 已有仓库使用私有化部署的gitlab
 本功能并不影响原仓库正常使用github/gitee
