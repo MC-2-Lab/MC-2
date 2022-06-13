@@ -42,7 +42,7 @@ services:
     #   - "22:22"
     restart: always
     
-  sshr:
+  gitlab_http:
     build: .
     image: imgnetlogin
     container_name: gitlab_http
