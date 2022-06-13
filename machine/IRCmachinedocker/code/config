@@ -56,15 +56,7 @@ Host ali8k
 # ==================================== #
 # ==================================== #
 # 跳板机
-Host jump1
-  HostName 467830y6j3.zicp.vip
-  User ywz
-  Port 32027
-# ==================================== #
-Host jump2
-  HostName 467830y6j3.zicp.vip
-  User ywz
-  Port 57009
+# 格式参考上面，具体ip及端口见内网穿透页
 # ==================================== #
 Host gitlab #gitlab.buaamc2.net
   # 内网限定: gitlab部署到ip更新 和 对应内网机器一致
