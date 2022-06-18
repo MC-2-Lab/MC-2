@@ -72,7 +72,7 @@ start
 最终效果  
 http://buaamc2.net/machine/IRCmachinedocker/code/all_external.html
 
-# gitlab+forward
+# 5.gitlab+forward
 vps端启动docker时
 ```
 cd docer/
@@ -82,7 +82,7 @@ docker-compose up -d
 如何配置及使用等信息见gitlab文件夹
 
 
-# nginx管理网站
+# 6.nginx管理网站
 采用module方式管理，部署于81端口
 ```
 #添加子模块
@@ -92,3 +92,5 @@ git submodule update --init --recursive
 #子模块更新
 git submodule update --remote
 ```
+采用module方式后，git reset将不影响此文件夹下内容，保证了更新数据持久性。
+
