@@ -83,7 +83,7 @@ docker-compose up -d
 
 
 # nginx管理网站
-采用module方式管理
+采用module方式管理，部署于81端口
 ```
 #添加子模块
 git submodule add -b master git@github.com:ywz978020607/docker_nginx_with_manage.git upload_docker
