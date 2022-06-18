@@ -1,4 +1,4 @@
-# machine文件夹
+# machine文件夹：各类工具性docker项目
 本文件夹放置各类docker部署项目，包括校内看板机运维docker，校内->cnvps进行ssh -R的穿透docker，gitlab的docker等等（nginx上传管理为仓库子module关联，`../upload_docker/`，暂不收录至此文件夹）
 
 ## IRCmachinedocker
