@@ -16,3 +16,6 @@
 
 ## nextcloud
 私有化云盘nextcloud
+
+## seafile
+云同步部署-分块存储
