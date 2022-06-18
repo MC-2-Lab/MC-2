@@ -86,7 +86,7 @@ docker-compose up -d
 采用module方式管理，部署于81端口
 ```
 #添加子模块
-git submodule add -b master git@github.com:ywz978020607/docker_nginx_with_manage.git upload_docker
+git submodule add -b master https://github.com/ywz978020607/docker_nginx_with_manage.git upload_docker
 #子模块初始化&下载，如果未装密钥可修改.git/config中url为https://github.com/user/xxx.git形式
 git submodule update --init --recursive
 #子模块更新
