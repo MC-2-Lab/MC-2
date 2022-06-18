@@ -1,0 +1,4 @@
+[submodule "upload_docker"]
+	path = upload_docker
+	url = git@github.com:ywz978020607/docker_nginx_with_manage.git
+	branch = master
