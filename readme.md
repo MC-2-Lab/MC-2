@@ -92,5 +92,5 @@ git submodule update --init --recursive
 #子模块更新
 git submodule update --remote
 ```
-采用module方式后，git reset将不影响此文件夹下内容，保证了更新数据持久性，特别是子项目中sqlite3数据库二进制文件夹的更新，对于其他如upload/下等数据文件，即便不采用module，git reset --hard时也不会丢失。
+采用module方式后，git reset将不影响此文件夹下内容更新，保证了更新数据持久性，特别是子项目中sqlite3数据库二进制文件夹的更新。而对于其他如upload/下新增的文件，即便不采用module，git reset --hard时也不会丢失。
 
