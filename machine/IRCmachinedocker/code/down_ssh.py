@@ -12,12 +12,12 @@ if not os.path.exists("config.d"):
     os.mkdir("config.d")
 file = "http://buaamc2.net/machine/IRCmachinedocker/code/config"
 save_as = "config.d/config"
-if os.path.exists(save_as):
-    os.remove(save_as)
-
 if platform.system() == "Windows":
-    os.system("copy {} {}".format("config", save_as.replace("/","\\")))
+    if not os.path.exists(save_as.replace("/","\\")):
+        os.system("copy {} {}".format("config", save_as.replace("/","\\")))
 else:
+    if os.path.exists(save_as):
+        os.remove(save_as)
     os.system("cp -p {} {}".format("config", save_as))
 
 r = requests.get(file)
