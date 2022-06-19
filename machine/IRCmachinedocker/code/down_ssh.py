@@ -27,6 +27,6 @@ with open("down", 'wb') as f:
     f.close()
 
 if not platform.system() == "Windows":
-    os.system("cat {} > {}".format("down", save_as.replace("/","\\")))
+    os.system("cat {} > {}".format("down", save_as))
 else:
     print("手动复制down内容到config.d/配置文件中，解决权限冲突")
