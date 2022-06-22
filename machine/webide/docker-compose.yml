@@ -1,0 +1,9 @@
+version: '3'
+services:
+  webide:
+    image: webide/webide
+    container_name: webide
+    ports:
+      - "10000:8080"
+    volumes:
+      - ./coding-ide-home:/root/.coding-ide

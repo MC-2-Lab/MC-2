@@ -14,6 +14,12 @@
 ## gitlab
 校内私有化部署gitlab的配置docker
 
+## [webide](https://github.com/Coding/WebIDE)
+简易版gitpod，gitpod有一个月100h限制，self-hosted有点麻烦，暂时先使用webide直接装到cnvps上
+
+# TODO
+## gitpod self-hosted
+
 ## nextcloud
 私有化云盘nextcloud
 
