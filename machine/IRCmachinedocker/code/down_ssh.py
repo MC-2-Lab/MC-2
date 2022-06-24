@@ -1,7 +1,6 @@
 # run this in .ssh/ and add `Include config.d/*` in .ssh/config first line.
 # PS.jump_sever config need to add manually in .ssh/config, which is not keep in online file.
 # If you need other user temporarily, you can input: ssh youruser@Host, like: ssh liutie@30901
-from imageio import save
 import requests
 import sys, os
 import platform
