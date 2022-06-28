@@ -2,9 +2,9 @@ Host 30901
   # 维修状态: 正常
   # 机械硬盘(数据盘): /temp_disk2
   # NFS映射: None
-  HostName 10.130.157.75
+  HostName 10.134.162.65
   User ywz
-  Port 2220
+  Port 22
 # ==================================== #
 Host 30902
   # /temp_disk2 
