@@ -36,7 +36,8 @@ services:
     build: .
     image: imgnetlogin
     container_name: sshr
-    command: bash -c "service ssh restart && ssh -R 0.0.0.0:2242:localhost:22 txy"
+    # command: bash -c "service ssh restart && ssh -R 0.0.0.0:2242:localhost:22 txy"
+    command: bash -c "service ssh restart && autossh -M 2022 -NR 2242:localhost:22 txy"
     tty: true
     # ports:
     #   - "22:22"
