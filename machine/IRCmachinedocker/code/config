@@ -1,6 +1,6 @@
 Host 30901
   # 维修状态: 正常
-  # 机械硬盘(数据盘): /temp_disk2
+  # 机械硬盘(数据盘): /media/data
   # NFS映射: None
   HostName 10.134.162.65
   User ywz
@@ -19,7 +19,7 @@ Host 207
   Port 2280
 # ==================================== #
 Host 930
-  # /temp_disk2 
+  # /media/disk2
   HostName 10.134.162.56
   User ywz
   Port 2280
@@ -42,4 +42,16 @@ Host 509
   User ywz
   Port 22
   # ProxyJump jump1
+  
+Host 40901
+  # /mnt/ssd1 & /mnt/ssd2 & /mnt/ssd3 & /mnt/ssd4 & /mnt/hdd0
+  HostName 10.212.253.155
+  User ywz
+  Port 22
+  
+Host 40902
+  # /mnt/ssd1 & /mnt/ssd2 & /mnt/ssd3 & /mnt/ssd4 & /mnt/hdd0
+  Host 10.212.253.197
+  User ywz
+  Port 22
 
