@@ -10,7 +10,7 @@ Host 30902
   # /temp_disk2 
   HostName 10.130.157.220
   User ywz
-  Port 2280
+  Port 22
 # ==================================== #
 Host 207
   # /temp_disk2 & /temp_disk3
