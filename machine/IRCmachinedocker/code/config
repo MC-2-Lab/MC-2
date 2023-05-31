@@ -55,3 +55,14 @@ Host 40902
   User ywz
   Port 22
 
+Host 40903
+  # /mnt/ssd1 & /mnt/ssd2 & /mnt/ssd3 & /mnt/ssd4 & /mnt/hdd0
+  HostName 10.212.253.242
+  User ywz
+  Port 22
+  
+Host 40904
+  # /mnt/ssd1 & /mnt/ssd2 & /mnt/ssd3 & /mnt/ssd4 & /mnt/hdd0
+  HostName 10.212.253.206
+  User ywz
+  Port 22
