@@ -14,49 +14,11 @@ build #only once
 start
 ```
 后续可以改main_login_regular.py 根据check_online返回的ip地址实现ip更新git
-
+注意需要在云服务器上修改/etc/ssh/sshd_config中的GatewayPorts（改为yes）
 ## 更新
 docker内已加入并注释校内反向代理到其他服务器的docker，见docker-compose.yml 取消注释并按对应说明操作并启动即可
 
 ## 登录
 ssh -p 2242 root@cn.buaamc2.net
 输入该跳板docker的root密码即可
-## 依赖
 
-requests
-
-```pip install requests```
-
-## API
-
-### 登录
-
-```srun4k.do_login(username,pwd,mbytes=0,minutes=0)```
-
-### 检查在线状态
-
-```srun4k.check_online()```
-
-### 登出当前终端
-
-```srun4k.do_logout(username)```
-
-### 登出所有终端
-
-```srun4k.force_logout(username,password)```
-
-## Login.py
-
-可以直接通过命令行调用
-
-### 登录
-```python Login.py login <username> <password>```
-
-### 检查在线状态
-```python Login.py check_online```
-
-### 登出当前终端
-```python Login.py logout <username>```
-
-### 登出所有终端
-```python Login.py logout_all <username> <password>```
