@@ -43,7 +43,7 @@ Host 509
 Host 40901
   # /mnt/ssd1 & /mnt/ssd2 & /mnt/ssd3 & /mnt/ssd4 & /mnt/hdd0
   HostName 10.212.253.155
-  User ywz
+  User yangwenzhe
   Port 22
 # ==================================== #
 Host 40902
@@ -63,7 +63,3 @@ Host 40904
   HostName 10.212.253.206
   User ywz
   Port 22
-
-Host alijump
-  HostName 120.55.243.211
-  User mc2
