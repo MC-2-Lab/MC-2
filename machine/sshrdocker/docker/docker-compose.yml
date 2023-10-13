@@ -43,12 +43,12 @@ services:
     #   - "22:22"
     restart: always
     
-  gitlab_http:
-    build: .
-    image: imgnetlogin
-    container_name: gitlab_http
-    command: bash -c "service ssh restart && ssh -R 0.0.0.0:8081:207.buaamc2.net:8081 txy"
-    tty: true
-    # ports:
-    #   - "22:22"
-    restart: always
+  # gitlab_http:
+  #   build: .
+  #   image: imgnetlogin
+  #   container_name: gitlab_http
+  #   command: bash -c "service ssh restart && ssh -R 0.0.0.0:8081:207.buaamc2.net:8081 txy"
+  #   tty: true
+  #   # ports:
+  #   #   - "22:22"
+  #   restart: always

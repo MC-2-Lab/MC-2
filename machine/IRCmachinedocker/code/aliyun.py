@@ -251,8 +251,8 @@ if __name__ == "__main__":
     from p2pinfo import *
     key = os.environ["key"]
     ##
-    AccessKey_ID = "LTAIq9xDsyWNUKYf"
-    Access_Key_Secret = "PNxLNA6UUB8/5XpRac/JrBy634Ftn1afR8KfdO9HTXc=" #hardcode
+    AccessKey_ID = "LTAI5tE733Ab3n5jcws1admK"
+    Access_Key_Secret = "QwaNvnLxPvrDRYrp2yFSaW/dBDi3aUDKaayhg16imFk=" #hardcode
     key = '%016s' % (key)
     Access_Key_Secret = aesDecrypt(key, Access_Key_Secret)
     #for-each
