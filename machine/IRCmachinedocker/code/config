@@ -1,7 +1,4 @@
 Host 30901
-  # 维修状态: 正常
-  # 机械硬盘(数据盘): /media/data
-  # NFS映射: None
   HostName 10.134.162.65
   User ywz
   Port 2280
@@ -66,3 +63,7 @@ Host 40904
   HostName 10.212.253.206
   User ywz
   Port 22
+
+Host alijump
+  HostName 120.55.243.211
+  User mc2

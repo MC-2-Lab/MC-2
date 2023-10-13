@@ -22,8 +22,8 @@ for line in context:
     kind = line.split(" ")[0]
     if kind == 'Host':
         temp_name = line.split(" ")[1]
-    elif 'jump' in temp_name:
-        continue
+    # elif 'jump' in temp_name:
+    #     continue
     elif kind == 'Port' and line.split(" ")[1] != '22':
         special_port[temp_name] = line.split(" ")[1]
     elif kind == 'HostName':
