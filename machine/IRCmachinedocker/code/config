@@ -19,7 +19,7 @@ Host 930
   # /media/disk2
   HostName 10.134.129.181
   User ywz
-  Port 2280
+  Port 22
 # ==================================== #
 Host 2080
   # /temp_disk2 
