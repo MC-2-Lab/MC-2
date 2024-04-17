@@ -58,8 +58,8 @@ def task1(ip,user,passwd,machine_name,port):
                     if temp_data[kk]!='|' and temp_data[kk]!='':
                         temp_user.append(temp_data[kk])
                 #获取用户名
-                p = os.popen('timeout 10s sshpass -p "{}" ssh {}@{} -p {} ps -f -p'.format(passwd,user,ip,port) + str(temp_user[-4]))
-                out = p.read().split('\n')[1].split(' ')[0]
+                p = os.popen('timeout 10s sshpass -p "{}" ssh {}@{} -p {} ps -o user= -p '.format(passwd,user,ip,port) + str(temp_user[-4]))
+                out = p.read().strip()
 
                 if temp_user[0] in all_data.keys():
                     if out in all_data[temp_user[0]].keys():
