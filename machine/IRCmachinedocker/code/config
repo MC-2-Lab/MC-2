@@ -5,7 +5,7 @@ Host 30901
 # ==================================== #
 Host 30902
   # /temp_disk2 
-  HostName 10.130.157.220
+  HostName 10.130.157.47
   User ywz
   Port 22
 # ==================================== #
@@ -31,7 +31,7 @@ Host 401
   # /temp_disk2 
   HostName 10.134.162.193
   User ywz
-  Port 22
+  Port 2280
 # ==================================== #
 Host 509
   # /temp_disk2 & /temp_disk3
