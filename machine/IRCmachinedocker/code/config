@@ -9,12 +9,6 @@ Host 30902
   User ywz
   Port 2280
 # ==================================== #
-Host 207
-  # /temp_disk2 & /temp_disk3
-  HostName 10.134.162.162
-  User ywz
-  Port 22
-# ==================================== #
 Host 930
   # /media/disk2
   HostName 10.134.163.184
@@ -32,13 +26,6 @@ Host 401
   HostName 10.134.162.193
   User ywz
   Port 2280
-# ==================================== #
-Host 509
-  # /temp_disk2 & /temp_disk3
-  HostName 10.134.162.211
-  User ywz
-  Port 22
-  # ProxyJump jump1
 # ==================================== #
 Host 40901
   # /mnt/ssd1 & /mnt/ssd2 & /mnt/ssd3 & /mnt/ssd4 & /mnt/hdd0
