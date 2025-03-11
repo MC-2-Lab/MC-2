@@ -50,3 +50,8 @@ Host 40904
   HostName 10.212.253.206
   User ywz
   Port 22
+
+Host L40
+  HostName 10.134.162.135
+  User ywz
+  Port 22
