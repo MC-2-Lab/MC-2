@@ -23,7 +23,7 @@ Host 2080
 # ==================================== #
 Host 30903
   # /temp_disk2 
-  HostName 10.134.162.87
+  HostName 10.134.72.205
   User ywz
   Port 2280
 # ==================================== #
@@ -52,6 +52,6 @@ Host 40904
   Port 22
 
 Host l40
-  HostName 10.134.162.135
+  HostName 10.134.72.58
   User ywz
   Port 22
