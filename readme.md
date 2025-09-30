@@ -28,10 +28,11 @@ chmod -R 777 /var/www/upload #用来接收校内的看板信息
 项目部署
 ```
 git pull origin master
+chmod -R 777 ./
 cd docker
-. env.sh
+. env.sh $passwd
 build
-
+site
 start
 ```
 日志文件位于docker/log/django.log中  
