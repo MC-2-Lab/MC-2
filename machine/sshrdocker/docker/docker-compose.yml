@@ -1,54 +1,13 @@
 version: '3'
 services:
-  netlogin:
+  jumpserver:
     build: .
-    image: imgnetlogin
-    container_name: netlogin
-    command: bash -c "python main_login_regular.py > docker/netlogin.log 2>&1" #./dev_start.sh
-    environment:
-      - user=${user}
-      - pwd=${pwd}
-    volumes:
-      - ..:/src
-    tty: true
-    # expose:
-    #   - "8000"
-    restart: always
-
-
-  # #内网端口转发到其他机器-适合无校内10开头ip机器
-  # #-需要被链接的机器修改/etc/ssh/sshd_config开启GatewayPorts yes后sevice ssh restart
-  # #-需要本机/etc/ssh/sshd_config取消开头Port&Address&ListenAddress注释后sevice ssh restart
-  # forward2other:
-  #   build: .
-  #   image: imgnetlogin
-  #   container_name: forward2other
-  #   tty: True
-  #   environment:
-  #     - user=${user}
-  #     - pwd=${pwd}
-  #   command: sshpass -p ${pwd} ssh -o StrictHostKeyChecking=no -R 0.0.0.0:9930(orother):127.0.0.1:22 ${user}@207(orother).buaamc2.net -p 22
-  #   ports:
-  #     - "22:22"
-  #   restart: always
-
-  sshr:
-    build: .
-    image: imgnetlogin
+    image: jumpserver
     container_name: sshr
     # command: bash -c "service ssh restart && ssh -R 0.0.0.0:2242:localhost:22 txy"
-    command: bash -c "service ssh restart && autossh -M 2022 -NR 2242:localhost:22 txy"
+    command: bash -c "service ssh restart && autossh -M 2022 -NR 0.0.0.0:2242:0.0.0.0:22 jump"
     tty: true
     # ports:
     #   - "22:22"
     restart: always
     
-  # gitlab_http:
-  #   build: .
-  #   image: imgnetlogin
-  #   container_name: gitlab_http
-  #   command: bash -c "service ssh restart && ssh -R 0.0.0.0:8081:207.buaamc2.net:8081 txy"
-  #   tty: true
-  #   # ports:
-  #   #   - "22:22"
-  #   restart: always

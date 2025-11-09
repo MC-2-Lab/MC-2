@@ -6,7 +6,7 @@ services:
       - user=${user}
       - passwd=${passwd}
       - key=${key}
-    command: bash -c "service nginx start && python3 code/get_user_remote.py > /src/machine.log 2>&1 && python3 code/aliyun.py"
+    command: bash -c "service nginx start && python3 code/get_user_remote.py > /src/machine.log 2>&1"
     ports:
       - "82:82"
     volumes:

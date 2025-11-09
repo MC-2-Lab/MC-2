@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.10
 ENV PYTHONUNBUFFERED 1
 ADD . /tmp
 # RUN pip install -r /tmp/requirements.txt

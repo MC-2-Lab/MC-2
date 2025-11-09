@@ -1,4 +1,4 @@
-Host txy
+Host jump
     HostName cn.buaamc2.net
     User sshr
     Port 22

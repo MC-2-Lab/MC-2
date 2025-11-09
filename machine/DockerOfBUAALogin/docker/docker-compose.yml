@@ -2,8 +2,8 @@ version: '3'
 services:
   netlogin:
     build: .
-    image: imgnetlogin
-    container_name: netlogin
+    image: buaalogin
+    container_name: buaalogin
     command: bash -c "python main_login_regular.py > docker/netlogin.log 2>&1" #./dev_start.sh
     environment:
       - user=${user}
